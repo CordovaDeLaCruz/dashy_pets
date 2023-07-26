@@ -1,17 +1,7 @@
-body {
-  min-height: 75rem;
-}
-
-.bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-}
-
-@media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-    }
+.button-color{
+  background-color: #8C30F5; /* Color de fondo del botón (azul en este caso) */
+  color: #ffffff; /* Color del texto del botón (blanco en este caso) */
+  border: none; /* Quitar el borde del botón */
+  padding: 10px 20px; /* Espaciado interno del botón */
+  border-radius: 5px; /* Borde redondeado del botón */
 }
