@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { ComponentsModule } from './module/components/components.module';
 import { LayoutModule } from './module/layout/layout.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     RouterModule,
     ComponentsModule,
     LayoutModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

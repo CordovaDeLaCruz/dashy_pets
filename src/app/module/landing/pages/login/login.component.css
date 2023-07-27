@@ -1,0 +1,25 @@
+::placeholder {
+    color: #8C30F5;
+}
+
+.btn[disabled] {
+    background-color: #878787;
+    border-color: #878787;
+    color: #fff;
+}
+
+.button-color {
+    background-color: #8C30F5;
+    color: #ffffff;
+}
+
+.custom-border {
+    border: 0.5px solid #878787;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.custom-input {
+    color: #8C30F5;
+}
