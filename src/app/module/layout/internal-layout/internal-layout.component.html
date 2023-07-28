@@ -1,0 +1,10 @@
+<div>
+  <app-navbar-session (toggleSideBarForMe)="sideBarToggler()"></app-navbar-session>
+  <div mode="side">
+    <app-sidebar *ngIf="isSidebarOpened"></app-sidebar>
+  </div>
+  <div class="content ">
+    <router-outlet></router-outlet>
+  </div>
+  <app-footer></app-footer>
+</div>

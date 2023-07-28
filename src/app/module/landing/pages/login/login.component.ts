@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginModelRequest } from 'src/app/module/models/login/loginModelRequest';
 import { LoginService } from 'src/app/module/services/login/login.service';
 
@@ -13,7 +14,7 @@ export class LoginComponent {
   loginForm: FormGroup;
   credentials: LoginModelRequest = new LoginModelRequest();
 
-  constructor(private _formBuilder: FormBuilder, private _loginService: LoginService) { }
+  constructor(private _formBuilder: FormBuilder, private _loginService: LoginService, private _router: Router,) { }
 
   ngOnInit() {
     this.loginForm = this._formBuilder.group({
@@ -27,21 +28,22 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    if (this.loginForm.valid) {
-      this.credentials = this.loginForm.value
-       this._loginService.login(this.credentials).subscribe(
-        (response) => {        
-          console.log(response)
-          const token = response.token;
-          if (token) {
-            localStorage.setItem('token', token);
-          }
-        },
-        (error) => {
-          console.error('Error de inicio de sesión:', error.message);
-        }
-       )
-
-    }
+    this._router.navigateByUrl('/internal/customer');
+    // if (this.loginForm.valid) {
+    //   this.credentials = this.loginForm.value
+    //   this._loginService.login(this.credentials).subscribe(
+    //     (response) => {
+    //       console.log(response)
+    //       const token = response.token;
+    //       if (token) {
+    //         localStorage.setItem('token', token);
+    //         this._router.navigateByUrl('/internal/customer');
+    //       }
+    //     },
+    //     (error) => {
+    //       console.error('Error de inicio de sesión:', error.message);
+    //     }
+    //   )
+    // }
   }
 }

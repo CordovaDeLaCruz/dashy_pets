@@ -8,6 +8,11 @@ const routes: Routes = [
       import('./module/landing/landing.module').then((m) => m.LandingPageModule),
   },
   {
+    path: 'internal',
+    loadChildren: () =>
+      import('./module/internal-landing/internal-landing.module').then((m) => m.InternalLandingModule),
+  },
+  {
     path: '',
     pathMatch: 'full',
     redirectTo: 'landing',
