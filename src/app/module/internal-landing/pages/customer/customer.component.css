@@ -1,0 +1,26 @@
+.table-responsive {
+    overflow-x: auto;
+}
+
+.container-center {
+    display: flex;
+    justify-content: center;
+}
+
+.custom-table {
+    border: 1px solid #ECEEEF;
+}
+
+.custom-table thead {
+    background-color: green;
+}
+
+.custom-table th {
+    color: #8C30F5;
+    font-size: 14px;
+  }
+
+  .button-color {
+    background-color: #8C30F5;
+    color: #ffffff;
+}

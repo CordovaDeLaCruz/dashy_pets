@@ -23,10 +23,6 @@ export class LoginService extends BaseService {
     );
   }
 
-  private handleError(error: HttpErrorResponse) {
-    return throwError(error.error);
-  }
-
   public removeSession() {
     localStorage.clear();
   }
