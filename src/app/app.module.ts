@@ -10,6 +10,7 @@ import { ComponentsModule } from './module/components/components.module';
 import { LayoutModule } from './module/layout/layout.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { CommonModule } from '@angular/common';
     ComponentsModule,
     LayoutModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    MdbModalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

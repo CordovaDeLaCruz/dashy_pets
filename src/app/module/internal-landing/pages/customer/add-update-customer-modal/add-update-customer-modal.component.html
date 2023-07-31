@@ -1,0 +1,61 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title">Agregar Cliente</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+  </div>
+  <div class="modal-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <label>DNI:</label>
+          <input type="text" class="form-control" placeholder="DNI">
+        </div>
+        <div class="col-md-4">
+          <label>Primer Nombre:</label>
+          <input type="text" class="form-control" placeholder="Primer Nombre">
+        </div>
+        <div class="col-md-4">
+          <label>Segundo Nombre:</label>
+          <input type="text" class="form-control" placeholder="Segundo Nombre">
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-4">
+          <label>Apellido Paterno:</label>
+          <input type="text" class="form-control" placeholder="Apellido Paterno">
+        </div>
+        <div class="col-md-4">
+          <label>Apellido Materno:</label>
+          <input type="text" class="form-control" placeholder="Apellido Materno">
+        </div>
+        <div class="col-md-4">
+          <label>Celular:</label>
+          <input type="text" class="form-control" placeholder="Celular">
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-6">
+          <label>Fecha de Nacimiento:</label>
+          <input type="date" class="form-control">
+        </div>
+        <div class="col-md-6">
+          <label>Correo Electrónico:</label>
+          <input type="email" class="form-control" placeholder="Correo Electrónico">
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-12">
+          <label>Dirección:</label>
+          <input type="text" class="form-control" placeholder="Dirección">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
+    <button type="button" class="btn btn-primary">Guardar</button>
+  </div>
+</div>
