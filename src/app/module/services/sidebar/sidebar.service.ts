@@ -7,7 +7,7 @@ import { BaseService } from '../base.service';
 @Injectable({
   providedIn: 'root'
 })
-export class SidebarService extends BaseService{
+export class SidebarService extends BaseService {
 
   private apiUrl = "/menu"
 
@@ -22,7 +22,7 @@ export class SidebarService extends BaseService{
       'Authorization': `Bearer ${token}`
     });
 
-    return this._httpClient.get<MenuOption[]>(url, {headers});
+    return this._httpClient.get<MenuOption[]>(url, { headers });
   }
 
 }

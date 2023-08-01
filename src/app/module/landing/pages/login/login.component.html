@@ -1,4 +1,9 @@
-<div>
+<div class="login-container" *ngIf="loading">
+  <div class="overlay">
+    <app-spinner></app-spinner>
+  </div>
+</div>
+<div class="login-container">
   <div style="margin-top: 100px;">
     <div class="container mt-5">
       <div style="margin-top: 50px;">

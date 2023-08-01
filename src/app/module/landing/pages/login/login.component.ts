@@ -12,6 +12,7 @@ import { SidebarService } from 'src/app/module/services/sidebar/sidebar.service'
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  loading = false;
   showPassword: boolean = false;
   loginForm: FormGroup;
   credentials: LoginModelRequest = new LoginModelRequest();
@@ -34,6 +35,7 @@ export class LoginComponent {
 
   onSubmit() {
     //this._router.navigateByUrl('/internal/Cliente');
+    this.loading = true
     if (this.loginForm.valid) {
       this.credentials = this.loginForm.value
       this._loginService.login(this.credentials).subscribe(
@@ -49,14 +51,17 @@ export class LoginComponent {
                 });
                 localStorage.setItem('menu', JSON.stringify(this.activeMenuOptions))
                 this._router.navigateByUrl('/internal/Cliente');
+                this.loading = false;
               },
               (error) =>{
+                this.loading = false;
                 console.error('Error al obtener los permisos:', error);
               }
             )
           }
         },
         (error) => {
+          this.loading = false;
           console.error('Error de inicio de sesión:', error.message);
         }
       )
