@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MdbModalRef, MdbModalService  } from 'mdb-angular-ui-kit/modal';
+import { ToastrService } from 'ngx-toastr';
 import { CustomerModel } from 'src/app/module/models/customer/list/listCustomerModelResponse';
 import { AddUpdateCustomerModalComponent } from './add-update-customer-modal/add-update-customer-modal.component';
 import { CustomerService } from './service/customer.service';
@@ -18,7 +19,7 @@ export class CustomerComponent implements OnInit {
   editCustomer = false
   modalRef: MdbModalRef<AddUpdateCustomerModalComponent>;
 
-  constructor(private _modalService: MdbModalService, private _customerService: CustomerService){
+  constructor(private _modalService: MdbModalService, private _customerService: CustomerService, private _toastr: ToastrService){
 
   }
   ngOnInit(): void {
@@ -33,7 +34,8 @@ export class CustomerComponent implements OnInit {
         this.loading = false
       },
       (error) => {
-        console.error('Error al obtener los usuarios:', error);
+        this.loading = false
+        this._toastr.error(error.error.error, "Lista de clientes")
       }
     );
   }
@@ -45,7 +47,6 @@ export class CustomerComponent implements OnInit {
       this.selectCustomer.editCustomer = editCustomer
       this.selectCustomer.viewCustomer = viewCustomer
     }
-    console.log("COMPONENTE " + this.selectCustomer?.idCliente);
     
     this.modalRef = this._modalService.open(AddUpdateCustomerModalComponent, {
       ignoreBackdropClick: true

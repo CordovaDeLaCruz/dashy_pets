@@ -11,6 +11,7 @@ import { LayoutModule } from './module/layout/layout.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
     LayoutModule,
     ReactiveFormsModule,
     CommonModule,
-    MdbModalModule
+    MdbModalModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

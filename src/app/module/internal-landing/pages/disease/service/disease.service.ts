@@ -1,36 +1,37 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable } from 'rxjs';
-import { CreateCustomerModelRequest } from 'src/app/module/models/customer/create/createCustomer';
-import { CustomerModel } from 'src/app/module/models/customer/list/listCustomerModelResponse';
+import { CreateDiseaseModelRequest, CreateDiseaseModelResponse } from 'src/app/module/models/disease/create/createDisease';
+import { DiseaseModelResponse } from 'src/app/module/models/disease/list/listDiseaseModelResponse';
 import { BaseService } from 'src/app/module/services/base.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CustomerService extends BaseService {
+export class DiseaseService extends BaseService {
 
-  private getapiUrl = "/cliente/listarCliente"
-  private postApiUrl = "/cliente/registrarCliente"
-  private patchApiUrl = "/cliente/actualizarCliente"
+  private getApiUrl = "/enfermedad/listarEnfermedad"
+  private postApiUrl = "/enfermedad/registrarEnfermedad"
+  private patchApiUrl = "/enfermedad/actualizarEnfermedad"
+
 
   constructor(private _httpClient: HttpClient) {
     super();
   }
 
-  getListCustomer(): Observable<CustomerModel[]> {
-    const url = this.getUrlBase() + this.getapiUrl;
+  getListDisease(): Observable<DiseaseModelResponse[]> {
+    const url = this.getUrlBase() + this.getApiUrl;
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
 
-    return this._httpClient.get<CustomerModel[]>(url, { headers }).pipe(
+    return this._httpClient.get<DiseaseModelResponse[]>(url, { headers }).pipe(
       catchError(this.handleError)
-    );;
+    );
   }
 
-  postCustomer(customer: CreateCustomerModelRequest) {
+  postDisease(disease: CreateDiseaseModelRequest) : Observable<CreateDiseaseModelResponse> {
     const url = this.getUrlBase() + this.postApiUrl;
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
@@ -38,12 +39,12 @@ export class CustomerService extends BaseService {
       'Authorization': `Bearer ${token}`
     });
 
-    return this._httpClient.post<CreateCustomerModelRequest>(url, customer, { headers }).pipe(
+    return this._httpClient.post<CreateDiseaseModelResponse>(url, disease, { headers }).pipe(
       catchError(this.handleError)
     );
   }
 
-  patchCustomer(customer: CustomerModel) {
+  patchDisease(disease: DiseaseModelResponse) {
     const url = this.getUrlBase() + this.patchApiUrl;
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
@@ -51,8 +52,9 @@ export class CustomerService extends BaseService {
       'Authorization': `Bearer ${token}`
     });
 
-    return this._httpClient.patch<CustomerModel>(url, customer, { headers }).pipe(
+    return this._httpClient.patch<DiseaseModelResponse>(url, disease, { headers }).pipe(
       catchError(this.handleError)
     );
   }
+
 }

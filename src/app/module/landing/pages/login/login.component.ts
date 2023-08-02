@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { LoginModelRequest } from 'src/app/module/models/login/loginModelRequest';
 import { MenuOption } from 'src/app/module/models/sidebar/sidebarModelResponse';
 import { LoginService } from 'src/app/module/services/login/login.service';
@@ -20,7 +21,7 @@ export class LoginComponent {
   menuOptionsAll: MenuOption[];
   activeMenuOptions: MenuOption[] = []
 
-  constructor(private _formBuilder: FormBuilder, private _loginService: LoginService, private _router: Router, private _sidebarService: SidebarService) { }
+  constructor(private _formBuilder: FormBuilder, private _loginService: LoginService, private _router: Router, private _sidebarService: SidebarService, private _toastr: ToastrService) { }
 
   ngOnInit() {
     this.loginForm = this._formBuilder.group({
@@ -34,35 +35,36 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    //this._router.navigateByUrl('/internal/Cliente');
     this.loading = true
     if (this.loginForm.valid) {
       this.credentials = this.loginForm.value
       this._loginService.login(this.credentials).subscribe(
         (response) => {
           const token = response.token;
+          const message = response.message
           if (token) {
             localStorage.setItem('token', token);
             this._sidebarService.getMunuOptions().subscribe(
               (response: MenuOption[]) => {
                 this.menuOptionsAll = response
                 this.menuOptionsAll.forEach(element => {
-                  if(element.estadoPermisoApp === "A") this.activeMenuOptions.push(element)
+                  if (element.estadoPermisoApp === "A") this.activeMenuOptions.push(element)
                 });
                 localStorage.setItem('menu', JSON.stringify(this.activeMenuOptions))
                 this._router.navigateByUrl('/internal/Cliente');
                 this.loading = false;
+                this._toastr.success(message, "Inicio de sesión")
               },
-              (error) =>{
+              (error) => {
                 this.loading = false;
-                console.error('Error al obtener los permisos:', error);
+                this._toastr.error(error.message, "Carga de datos")
               }
             )
           }
         },
         (error) => {
           this.loading = false;
-          console.error('Error de inicio de sesión:', error.message);
+          this._toastr.error(error.message, "Inicio de sesión")
         }
       )
     }

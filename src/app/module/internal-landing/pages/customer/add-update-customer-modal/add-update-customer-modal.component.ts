@@ -14,11 +14,11 @@ export class AddUpdateCustomerModalComponent implements OnInit {
   customerForm: FormGroup;
 
 
-  constructor(private modalRef: MdbModalRef<AddUpdateCustomerModalComponent>, private formBuilder: FormBuilder) {
+  constructor(private _modalRef: MdbModalRef<AddUpdateCustomerModalComponent>, private _formBuilder: FormBuilder) {
 
   }
   ngOnInit(): void {
-    this.customerForm = this.formBuilder.group({
+    this.customerForm = this._formBuilder.group({
       dni: ['', Validators.required],
       nombre1: ['', Validators.required],
       nombre2: [''],
@@ -35,7 +35,7 @@ export class AddUpdateCustomerModalComponent implements OnInit {
     }
   }
 
-  saveCustomer() {
+  submitCustomer() {
     if (this.customerForm.invalid) {
       // Si el formulario no es válido, muestra un mensaje de error o realiza alguna acción
       console.log('El formulario no es válido');
@@ -46,10 +46,10 @@ export class AddUpdateCustomerModalComponent implements OnInit {
     const datosCliente = this.customerForm.value;
     console.log('Datos del cliente:', datosCliente);
     // Cerrar el modal después de guardar los datos, si es necesario
-    this.modalRef.close();
+    this._modalRef.close();
   }
 
   closeModal() {
-    this.modalRef.close();
+    this._modalRef.close();
   }
 }
