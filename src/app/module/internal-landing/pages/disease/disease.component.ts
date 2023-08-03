@@ -44,14 +44,14 @@ export class DiseaseComponent implements OnInit {
     );
   }
 
-  openModal(Disease: DiseaseModelResponse | null, addDisease: boolean, editDisease: boolean, viewDisease: boolean) {
+  openModal(Disease: DiseaseModelResponse | null, addDisease: boolean, viewDisease: boolean, editDisease: boolean) {
     this.selectDisease = Disease
     if(this.selectDisease != undefined){
       this.selectDisease.addDisease = addDisease
       this.selectDisease.editDisease = editDisease
       this.selectDisease.viewDisease = viewDisease
     }
-    
+
     this.modalRef = this._modalService.open(AddUpdateViewDiseaseModalComponent, {
       ignoreBackdropClick: true
     });

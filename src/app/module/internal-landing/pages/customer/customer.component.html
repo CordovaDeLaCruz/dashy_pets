@@ -44,7 +44,8 @@
                                         <i style="color: #8C30F5" class="bi bi-pencil" (click)="openModal(customer, false, false, true)"></i>
                                     </span>
                                     <span class="mx-2">
-                                        <i style="color: #8C30F5" class="bi bi-trash"></i>
+                                        <i *ngIf="customer.estadoCliente == 'A'" style="color: #8C30F5" class="bi bi-trash"></i>
+                                        <i *ngIf="customer.estadoCliente == 'I'" style="color: #8C30F5" class="bi bi-check-circle"></i>
                                     </span>
                                 </td>
                             </tr>
