@@ -25,7 +25,7 @@
                         <label for="password" class="form-label" style="color: #8C30F5;">Contraseña</label>
                         <div class="input-group">
                           <input type="{{ showPassword ? 'text' : 'password' }}" placeholder="Ingresar la contraseña"
-                            class="form-control custom-input" id="clave" formControlName="clave" required>
+                            class="form-control custom-input" id="clave" formControlName="clave" autocomplete="clave" required>
                           <div class="input-group-append">
                             <span class="input-group-text" (click)="togglePasswordVisibility()">
                               <i style="color: #8C30F5"

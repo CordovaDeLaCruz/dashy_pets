@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable } from 'rxjs';
 import { CreateDiseaseModelRequest, CreateDiseaseModelResponse } from 'src/app/module/models/disease/create/createDisease';
-import { DiseaseModelResponse } from 'src/app/module/models/disease/list/listDiseaseModelResponse';
+import { DiseaseModelResponse, UpdateDiseaseModelResponse } from 'src/app/module/models/disease/list/listDiseaseModelResponse';
 import { BaseService } from 'src/app/module/services/base.service';
 
 @Injectable({
@@ -52,7 +52,7 @@ export class DiseaseService extends BaseService {
       'Authorization': `Bearer ${token}`
     });
 
-    return this._httpClient.patch<DiseaseModelResponse>(url, disease, { headers }).pipe(
+    return this._httpClient.patch<UpdateDiseaseModelResponse>(url, disease, { headers }).pipe(
       catchError(this.handleError)
     );
   }

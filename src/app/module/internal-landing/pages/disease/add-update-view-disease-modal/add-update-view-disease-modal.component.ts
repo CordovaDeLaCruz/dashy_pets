@@ -11,14 +11,14 @@ import { DiseaseService } from '../service/disease.service';
   templateUrl: './add-update-view-disease-modal.component.html',
   styleUrls: ['./add-update-view-disease-modal.component.css']
 })
-export class AddUpdateViewDiseaseModalComponent implements OnInit  {
+export class AddUpdateViewDiseaseModalComponent implements OnInit {
   loading = false;
   @Input() disease: DiseaseModelResponse | null;
   diseaseForm: FormGroup;
   addDisease: CreateDiseaseModelRequest = new CreateDiseaseModelRequest()
 
   constructor(
-    private _modalRef: MdbModalRef<AddUpdateViewDiseaseModalComponent>, 
+    private _modalRef: MdbModalRef<AddUpdateViewDiseaseModalComponent>,
     private _formBuilder: FormBuilder,
     private _diseaseService: DiseaseService,
     private _toastr: ToastrService) {
@@ -29,13 +29,12 @@ export class AddUpdateViewDiseaseModalComponent implements OnInit  {
     this.diseaseForm = this._formBuilder.group({
       descripcionEnfermedad: ['', Validators.required],
     });
-    if (this.disease){
+    if (this.disease) {
       this.diseaseForm.patchValue(this.disease)
     }
   }
 
   submitDisease() {
-    debugger
     this.loading = true
     if (this.diseaseForm.valid) {
       this.addDisease = this.diseaseForm.value
@@ -50,6 +49,27 @@ export class AddUpdateViewDiseaseModalComponent implements OnInit  {
           this._toastr.error(error.message, "Agregar Enfermedad")
         }
       )
+    }
+  }
+
+  updateDisease() {
+    this.loading = true
+    if (this.diseaseForm.valid) {
+      if (this.disease) {
+        this.disease.descripcionEnfermedad = this.diseaseForm.value.descripcionEnfermedad;
+        this._diseaseService.patchDisease(this.disease).subscribe(
+          (response) => {
+            this.loading = false
+            this._toastr.success(response.message, "Actualizar enfermedad")
+            this._modalRef.close();
+          },
+          (error) => {
+            this.loading = false;
+            this._toastr.error(error.message, "Actualizar enfermedad")
+            this._modalRef.close();
+          }
+        )
+      }
     }
   }
 

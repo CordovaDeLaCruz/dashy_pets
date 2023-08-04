@@ -38,8 +38,8 @@
                                         <i style="color: #8C30F5" class="bi bi-pencil" (click)="openModal(disease, false, false, true)"></i>
                                     </span>
                                     <span class="mx-2">
-                                      <i *ngIf="disease.estadoEnfermedad == 'A'" style="color: #8C30F5" class="bi bi-trash"></i>
-                                      <i *ngIf="disease.estadoEnfermedad == 'I'" style="color: #8C30F5" class="bi bi-check-circle"></i>
+                                      <i *ngIf="disease.estadoEnfermedad == 'A'" style="color: #8C30F5" class="bi bi-trash" (click)="activateDeactivateModal(disease)"></i>
+                                      <i *ngIf="disease.estadoEnfermedad == 'I'" style="color: #8C30F5" class="bi bi-check-circle" (click)="activateDeactivateModal(disease)"></i>
                                     </span>
                                 </td>
                             </tr>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { ToastrService } from 'ngx-toastr';
 import { DiseaseModelResponse } from 'src/app/module/models/disease/list/listDiseaseModelResponse';
+import { ActivateDeactivateDiseaseModalComponent } from './activate-deactivate-disease-modal/activate-deactivate-disease-modal.component';
 import { AddUpdateViewDiseaseModalComponent } from './add-update-view-disease-modal/add-update-view-disease-modal.component';
 import { DiseaseService } from './service/disease.service';
 
@@ -18,6 +19,7 @@ export class DiseaseComponent implements OnInit {
   viewDisease = false
   editDisease = false
   modalRef: MdbModalRef<AddUpdateViewDiseaseModalComponent>;
+  activateDeactivateDisease: MdbModalRef<ActivateDeactivateDiseaseModalComponent>
 
   constructor(
     private _modalService: MdbModalService,
@@ -57,10 +59,21 @@ export class DiseaseComponent implements OnInit {
     });
     this.modalRef.component.disease = this.selectDisease
 
-    if(!this.selectDisease)
-      this.modalRef.onClose.subscribe(() => {
-        this.getListDisease()
-      });
+    this.modalRef.onClose.subscribe(() => {
+      this.getListDisease()
+    });
+      
+  }
+
+  activateDeactivateModal(disease: DiseaseModelResponse){
+    this.activateDeactivateDisease = this._modalService.open(ActivateDeactivateDiseaseModalComponent, {
+      ignoreBackdropClick: true
+    });
+    this.activateDeactivateDisease.component.disease = disease
+
+    this.activateDeactivateDisease.onClose.subscribe(() => {
+      this.getListDisease()
+    });
   }
 
 }

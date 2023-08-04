@@ -16,7 +16,6 @@ export class LoginComponent {
   loading = false;
   showPassword: boolean = false;
   loginForm: FormGroup;
-  credentials: LoginModelRequest = new LoginModelRequest();
 
   menuOptionsAll: MenuOption[];
   activeMenuOptions: MenuOption[] = []
@@ -37,8 +36,7 @@ export class LoginComponent {
   onSubmit() {
     this.loading = true
     if (this.loginForm.valid) {
-      this.credentials = this.loginForm.value
-      this._loginService.login(this.credentials).subscribe(
+      this._loginService.login(this.loginForm.value).subscribe(
         (response) => {
           const token = response.token;
           const message = response.message

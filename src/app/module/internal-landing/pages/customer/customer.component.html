@@ -11,7 +11,7 @@
                     <h2 style="color: #A18FD3">Listado de clientes</h2>
                 </div>
                 <div class="col-md-3 text-right">
-                    <button class="btn button-color" (click)="openModal(null , true ,false, false)">Registrar Cliente</button>
+                    <button class="btn button-color" (click)="addViewEditCustomerModal(null , true ,false, false)">Registrar Cliente</button>
                 </div>
             </div>
             <div class="row mt-4">
@@ -38,14 +38,14 @@
                                 <td>{{customer.estadoCliente === 'A' ? 'ACTIVO' : (customer.estadoCliente === 'I' ? 'INACTIVO' : '-')}}</td>
                                 <td class="d-flex justify-content-center">
                                     <span class="mx-2">
-                                        <i style="color: #8C30F5" class="bi bi-eye" (click)="openModal(customer, false, true, false)"></i>
+                                        <i style="color: #8C30F5" class="bi bi-eye" (click)="addViewEditCustomerModal(customer, false, true, false)"></i>
                                     </span>
                                     <span class="mx-2">
-                                        <i style="color: #8C30F5" class="bi bi-pencil" (click)="openModal(customer, false, false, true)"></i>
+                                        <i style="color: #8C30F5" class="bi bi-pencil" (click)="addViewEditCustomerModal(customer, false, false, true)"></i>
                                     </span>
                                     <span class="mx-2">
-                                        <i *ngIf="customer.estadoCliente == 'A'" style="color: #8C30F5" class="bi bi-trash"></i>
-                                        <i *ngIf="customer.estadoCliente == 'I'" style="color: #8C30F5" class="bi bi-check-circle"></i>
+                                        <i *ngIf="customer.estadoCliente == 'A'" style="color: #8C30F5" class="bi bi-trash" (click)="activateDeactivateModa(customer)"></i>
+                                        <i *ngIf="customer.estadoCliente == 'I'" style="color: #8C30F5" class="bi bi-check-circle" (click)="activateDeactivateModa(customer)"></i>
                                     </span>
                                 </td>
                             </tr>

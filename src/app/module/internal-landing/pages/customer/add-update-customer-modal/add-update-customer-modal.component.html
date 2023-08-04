@@ -53,10 +53,11 @@
           </div>
           <div class="col-md-4">
             <label>Sexo:</label>
-            <select class="form-control custom-select" formControlName="sexo">
-              <option value="male">Masculino</option>
-              <option value="female">Femenino</option>
+            <select *ngIf="!customer?.viewCustomer" class="form-control custom-select" formControlName="sexo">
+              <option value="M">Masculino</option>
+              <option value="F">Femenino</option>
             </select>
+            <input *ngIf="customer?.viewCustomer" type="text" class="form-control" placeholder="Género" formControlName="sexo" [readonly]="customer?.viewCustomer">
           </div>
         </div>
         <br>
@@ -68,10 +69,10 @@
         </div>
         <div class="modal-footer">
           <div *ngIf="!customer">
-            <button type="button" class="btn button-color" [disabled]="!customerForm.valid" (click)="submitCustomer()">Registrar</button>
+            <button type="button" class="btn button-color" [disabled]="!customerForm.valid" (click)="regiterCustomer()">Registrar</button>
           </div>
           <div *ngIf="customer">
-            <button *ngIf="customer.editCustomer" type="button" class="btn button-color" [disabled]="!customerForm.valid" (click)="submitCustomer()">Actualizar</button>
+            <button *ngIf="customer.editCustomer" type="button" class="btn button-color" [disabled]="!customerForm.valid" (click)="updateCustomer()">Actualizar</button>
             <button *ngIf="customer.viewCustomer" type="button" class="btn button-color" (click)="closeModal()">Cerrar</button>
           </div>
         </div>

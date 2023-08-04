@@ -8,3 +8,8 @@ export class DiseaseModelResponse {
   editDisease: boolean
   addDisease: boolean
 }
+
+
+export class UpdateDiseaseModelResponse {
+  message: string
+}

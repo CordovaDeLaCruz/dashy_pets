@@ -8,14 +8,18 @@ import { ConsultationComponent } from "./pages/consultation/consultation.compone
 import { AddUpdateCustomerModalComponent } from "./pages/customer/add-update-customer-modal/add-update-customer-modal.component";
 import { DiseaseComponent } from "./pages/disease/disease.component";
 import { AddUpdateViewDiseaseModalComponent } from "./pages/disease/add-update-view-disease-modal/add-update-view-disease-modal.component";
+import { ActivateDeactivateCustomerModalComponent } from "./pages/customer/activate-deactivate-customer-modal/activate-deactivate-customer-modal.component";
+import { ActivateDeactivateDiseaseModalComponent } from "./pages/disease/activate-deactivate-disease-modal/activate-deactivate-disease-modal.component";
 
 @NgModule({
   declarations:
     [CustomerComponent,
       ConsultationComponent,
       AddUpdateCustomerModalComponent,
+      ActivateDeactivateCustomerModalComponent,
       DiseaseComponent,
-      AddUpdateViewDiseaseModalComponent
+      AddUpdateViewDiseaseModalComponent,
+      ActivateDeactivateDiseaseModalComponent
     ],
   imports:
     [InternalLandingRoutingModule,

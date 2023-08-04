@@ -32,7 +32,7 @@
             </div>
             <div *ngIf="disease">
               <button *ngIf="disease.editDisease" type="button" class="btn button-color" [disabled]="!diseaseForm.valid"
-                (click)="submitDisease()">Actualizar</button>
+                (click)="updateDisease()">Actualizar</button>
               <button *ngIf="disease.viewDisease" type="button" class="btn button-color"
                 (click)="closeModal()">Cerrar</button>
             </div>
