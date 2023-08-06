@@ -6,6 +6,7 @@ import { ConsultationComponent } from "./pages/consultation/consultation.compone
 import { PetComponent } from "./pages/pet/pet.component";
 import { VetComponent } from "./pages/vet/vet.component";
 import { DiseaseComponent } from "./pages/disease/disease.component";
+import { SpecialtyComponent } from "./pages/specialty/specialty.component";
 
 const routes: Routes = [
   {
@@ -13,10 +14,11 @@ const routes: Routes = [
     component: InternalLayoutComponent,
     children: [
       { path: 'Cliente', component: CustomerComponent },
+      { path: 'Enfermedad', component: DiseaseComponent },
+      { path: 'Especialidad', component: SpecialtyComponent },
       { path: 'Consulta', component: ConsultationComponent },
       { path: 'Mascota', component: PetComponent },
       { path: 'Veterinario', component: VetComponent },
-      { path: 'Enfermedad', component: DiseaseComponent },
       {
         path: '**',
         redirectTo: '404',

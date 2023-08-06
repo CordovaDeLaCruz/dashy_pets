@@ -10,6 +10,7 @@ import { DiseaseComponent } from "./pages/disease/disease.component";
 import { AddUpdateViewDiseaseModalComponent } from "./pages/disease/add-update-view-disease-modal/add-update-view-disease-modal.component";
 import { ActivateDeactivateCustomerModalComponent } from "./pages/customer/activate-deactivate-customer-modal/activate-deactivate-customer-modal.component";
 import { ActivateDeactivateDiseaseModalComponent } from "./pages/disease/activate-deactivate-disease-modal/activate-deactivate-disease-modal.component";
+import { SpecialtyComponent } from "./pages/specialty/specialty.component";
 
 @NgModule({
   declarations:
@@ -19,7 +20,8 @@ import { ActivateDeactivateDiseaseModalComponent } from "./pages/disease/activat
       ActivateDeactivateCustomerModalComponent,
       DiseaseComponent,
       AddUpdateViewDiseaseModalComponent,
-      ActivateDeactivateDiseaseModalComponent
+      ActivateDeactivateDiseaseModalComponent,
+      SpecialtyComponent
     ],
   imports:
     [InternalLandingRoutingModule,
