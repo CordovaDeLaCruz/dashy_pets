@@ -1,6 +1,4 @@
-export type ListDiseaseModelResponse = DiseaseModelResponse[]
-
-export class DiseaseModelResponse {
+export class DiseaseModel {
   idEnfermedad: number
   descripcionEnfermedad: string
   estadoEnfermedad: string
@@ -9,7 +7,10 @@ export class DiseaseModelResponse {
   addDisease: boolean
 }
 
+export class CreateDiseaseModelRequest {
+  descripcionEnfermedad: string
+}
 
-export class UpdateDiseaseModelResponse {
+export class DiseaseModelResponse {
   message: string
 }

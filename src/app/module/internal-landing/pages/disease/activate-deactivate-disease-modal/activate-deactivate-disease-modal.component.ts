@@ -2,8 +2,8 @@ import { Component, Input, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MdbModalRef } from "mdb-angular-ui-kit/modal";
 import { ToastrService } from "ngx-toastr";
-import { DiseaseModelResponse } from "src/app/module/models/disease/list/listDiseaseModelResponse";
 import { DiseaseService } from "../service/disease.service";
+import { DiseaseModel } from "src/app/module/models/disease/disease-models";
 
 @Component({
   selector: 'app-activate-deactivate-disease-modal',
@@ -12,7 +12,7 @@ import { DiseaseService } from "../service/disease.service";
 })
 export class ActivateDeactivateDiseaseModalComponent implements OnInit {
   loading = false;
-  @Input() disease: DiseaseModelResponse | null;
+  @Input() disease: DiseaseModel | null;
 
   constructor(
     private _modalRef: MdbModalRef<ActivateDeactivateDiseaseModalComponent>,
@@ -21,7 +21,7 @@ export class ActivateDeactivateDiseaseModalComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    
+
   }
 
   activateDeactivateDisease() {

@@ -11,6 +11,8 @@ import { AddUpdateViewDiseaseModalComponent } from "./pages/disease/add-update-v
 import { ActivateDeactivateCustomerModalComponent } from "./pages/customer/activate-deactivate-customer-modal/activate-deactivate-customer-modal.component";
 import { ActivateDeactivateDiseaseModalComponent } from "./pages/disease/activate-deactivate-disease-modal/activate-deactivate-disease-modal.component";
 import { SpecialtyComponent } from "./pages/specialty/specialty.component";
+import { AddUpdateViewSpecialtyModalComponent } from "./pages/specialty/add-update-view-specialty-modal/add-update-view-specialty-modal.component";
+import { ActivateDeactivateSpecialtyModalComponent } from "./pages/specialty/activate-deactivate-specialty-modal/activate-deactivate-specialty-modal.component";
 
 @NgModule({
   declarations:
@@ -21,7 +23,9 @@ import { SpecialtyComponent } from "./pages/specialty/specialty.component";
       DiseaseComponent,
       AddUpdateViewDiseaseModalComponent,
       ActivateDeactivateDiseaseModalComponent,
-      SpecialtyComponent
+      SpecialtyComponent,
+      AddUpdateViewSpecialtyModalComponent,
+      ActivateDeactivateSpecialtyModalComponent
     ],
   imports:
     [InternalLandingRoutingModule,

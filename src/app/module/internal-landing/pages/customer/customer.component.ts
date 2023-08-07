@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { ToastrService } from 'ngx-toastr';
-import { CustomerModel } from 'src/app/module/models/customer/list/listCustomerModelResponse';
 import { ActivateDeactivateCustomerModalComponent } from './activate-deactivate-customer-modal/activate-deactivate-customer-modal.component';
 import { AddUpdateCustomerModalComponent } from './add-update-customer-modal/add-update-customer-modal.component';
 import { CustomerService } from './service/customer.service';
+import { CustomerModel } from 'src/app/module/models/customer/customer-models';
 
 @Component({
   selector: 'app-customer',
@@ -58,7 +58,7 @@ export class CustomerComponent implements OnInit {
     this.modalRef.onClose.subscribe(() => {
       this.getListCustomer()
     });
-      
+
   }
 
   activateDeactivateModa(customer: CustomerModel){

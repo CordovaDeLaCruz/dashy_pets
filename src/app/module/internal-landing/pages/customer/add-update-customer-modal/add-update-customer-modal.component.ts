@@ -2,9 +2,8 @@ import { Component, Input, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MdbModalRef } from "mdb-angular-ui-kit/modal";
 import { ToastrService } from "ngx-toastr";
-import { CreateCustomerModelRequest } from "src/app/module/models/customer/create/createCustomer";
-import { CustomerModel } from "src/app/module/models/customer/list/listCustomerModelResponse";
 import { CustomerService } from "../service/customer.service";
+import { CreateCustomerModelRequest, CustomerModel } from "src/app/module/models/customer/customer-models";
 
 @Component({
   selector: 'app-add-update-customer-modal',
@@ -18,7 +17,7 @@ export class AddUpdateCustomerModalComponent implements OnInit {
   newCustomer: CreateCustomerModelRequest = new CreateCustomerModelRequest();
 
   constructor(
-    private _modalRef: MdbModalRef<AddUpdateCustomerModalComponent>, 
+    private _modalRef: MdbModalRef<AddUpdateCustomerModalComponent>,
     private _formBuilder: FormBuilder,
     private _customerService: CustomerService,
     private _toastr: ToastrService) {
@@ -89,7 +88,7 @@ export class AddUpdateCustomerModalComponent implements OnInit {
             this._modalRef.close();
           }
         )
-      }      
+      }
     }
   }
 

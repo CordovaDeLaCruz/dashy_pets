@@ -1,5 +1,3 @@
-export type ListCustomerModel = CustomerModel[]
-
 export class CustomerModel {
   idCliente: number
   apellidoPaterno: string
@@ -20,6 +18,20 @@ export class CustomerModel {
   editCustomer: boolean
 }
 
-export class UpdateCustomerModelResponse {
+export class CreateCustomerModelRequest {
+  dni: number
+  nombre1: string
+  nombre2: string
+  nombre3: string
+  apellidoPaterno: string
+  apellidoMaterno: string
+  sexo: string
+  fechaNacimiento: string
+  correo: string
+  celular: string
+  direccion: string
+}
+
+export class CustomerModelResponse {
   message: string
 }

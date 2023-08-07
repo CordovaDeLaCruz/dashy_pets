@@ -2,9 +2,8 @@ import { Component, Input, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MdbModalRef } from "mdb-angular-ui-kit/modal";
 import { ToastrService } from "ngx-toastr";
-import { CreateCustomerModelRequest } from "src/app/module/models/customer/create/createCustomer";
-import { CustomerModel } from "src/app/module/models/customer/list/listCustomerModelResponse";
 import { CustomerService } from "../service/customer.service";
+import { CustomerModel } from "src/app/module/models/customer/customer-models";
 
 @Component({
   selector: 'app-activate-deactivate-customer-modal',

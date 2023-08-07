@@ -2,9 +2,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 import { ToastrService } from 'ngx-toastr';
-import { CreateDiseaseModelRequest } from 'src/app/module/models/disease/create/createDisease';
-import { DiseaseModelResponse } from 'src/app/module/models/disease/list/listDiseaseModelResponse';
 import { DiseaseService } from '../service/disease.service';
+import { CreateDiseaseModelRequest, DiseaseModel } from 'src/app/module/models/disease/disease-models';
 
 @Component({
   selector: 'app-add-update-view-disease-modal',
@@ -13,7 +12,7 @@ import { DiseaseService } from '../service/disease.service';
 })
 export class AddUpdateViewDiseaseModalComponent implements OnInit {
   loading = false;
-  @Input() disease: DiseaseModelResponse | null;
+  @Input() disease: DiseaseModel | null;
   diseaseForm: FormGroup;
   addDisease: CreateDiseaseModelRequest = new CreateDiseaseModelRequest()
 

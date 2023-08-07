@@ -1,8 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable } from 'rxjs';
-import { CreateCustomerModelRequest, CreateCustomerModelResponse } from 'src/app/module/models/customer/create/createCustomer';
-import { CustomerModel, UpdateCustomerModelResponse } from 'src/app/module/models/customer/list/listCustomerModelResponse';
+import { CreateCustomerModelRequest, CustomerModel, CustomerModelResponse } from 'src/app/module/models/customer/customer-models';
 import { BaseService } from 'src/app/module/services/base.service';
 
 @Injectable({
@@ -38,7 +37,7 @@ export class CustomerService extends BaseService {
       'Authorization': `Bearer ${token}`
     });
 
-    return this._httpClient.post<CreateCustomerModelResponse>(url, customer, { headers }).pipe(
+    return this._httpClient.post<CustomerModelResponse>(url, customer, { headers }).pipe(
       catchError(this.handleError)
     );
   }
@@ -51,7 +50,7 @@ export class CustomerService extends BaseService {
       'Authorization': `Bearer ${token}`
     });
 
-    return this._httpClient.patch<UpdateCustomerModelResponse>(url, customer, { headers }).pipe(
+    return this._httpClient.patch<CustomerModelResponse>(url, customer, { headers }).pipe(
       catchError(this.handleError)
     );
   }
