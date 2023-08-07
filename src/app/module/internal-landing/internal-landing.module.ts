@@ -13,6 +13,9 @@ import { ActivateDeactivateDiseaseModalComponent } from "./pages/disease/activat
 import { SpecialtyComponent } from "./pages/specialty/specialty.component";
 import { AddUpdateViewSpecialtyModalComponent } from "./pages/specialty/add-update-view-specialty-modal/add-update-view-specialty-modal.component";
 import { ActivateDeactivateSpecialtyModalComponent } from "./pages/specialty/activate-deactivate-specialty-modal/activate-deactivate-specialty-modal.component";
+import { VetComponent } from "./pages/vet/vet.component";
+import { AddUpdateVetModalComponent } from "./pages/vet/add-update-view-vet-modal/add-update-view-vet-modal.component";
+import { ActivateDeactivateVetModalComponent } from "./pages/vet/activate-deactivate-vet-modal/activate-deactivate-vet-modal.component";
 
 @NgModule({
   declarations:
@@ -25,7 +28,10 @@ import { ActivateDeactivateSpecialtyModalComponent } from "./pages/specialty/act
       ActivateDeactivateDiseaseModalComponent,
       SpecialtyComponent,
       AddUpdateViewSpecialtyModalComponent,
-      ActivateDeactivateSpecialtyModalComponent
+      ActivateDeactivateSpecialtyModalComponent,
+      VetComponent,
+      AddUpdateVetModalComponent,
+      ActivateDeactivateVetModalComponent
     ],
   imports:
     [InternalLandingRoutingModule,
