@@ -7,6 +7,7 @@ import { PetComponent } from "./pages/pet/pet.component";
 import { VetComponent } from "./pages/vet/vet.component";
 import { DiseaseComponent } from "./pages/disease/disease.component";
 import { SpecialtyComponent } from "./pages/specialty/specialty.component";
+import { PetTypeComponent } from "./pages/pet-type/pet-type.component";
 
 const routes: Routes = [
   {
@@ -16,6 +17,7 @@ const routes: Routes = [
       { path: 'Cliente', component: CustomerComponent },
       { path: 'Enfermedad', component: DiseaseComponent },
       { path: 'Especialidad', component: SpecialtyComponent },
+      { path: 'Tipo Mascota', component: PetTypeComponent },
       { path: 'Consulta', component: ConsultationComponent },
       { path: 'Mascota', component: PetComponent },
       { path: 'Veterinario', component: VetComponent },

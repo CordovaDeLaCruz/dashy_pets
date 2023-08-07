@@ -1,0 +1,31 @@
+<div class="modal-content" style="width: 120%;">
+  <div class="modal-header">
+    <div *ngIf="petType?.estadoTipoMascota == 'I'">
+      <h4>Activar tipo mascota</h4>
+    </div>
+    <div  *ngIf="petType?.estadoTipoMascota == 'A'">
+      <h4>Inactivar tipo mascota</h4>
+    </div>
+    <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+  </div>
+  <div class="modal-body">
+    <div class="container">
+      <div class="row">
+      <div class="row">
+        <div class="col-md-12">
+          <div *ngIf="petType?.estadoTipoMascota == 'I'">
+            <p>¿Desea activar el tipo mascota?</p>
+          </div>
+          <div *ngIf="petType?.estadoTipoMascota == 'A'">
+            <p>¿Desea inactivar el tipo mascota?</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div >
+          <button type="button" class="btn button-color" (click)="activateDeactivatePetType()">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
