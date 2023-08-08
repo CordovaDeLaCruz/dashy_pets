@@ -25,6 +25,8 @@ import { ActivateDeactivatePetClassModalComponent } from "./pages/pet-class/acti
 import { PetComponent } from "./pages/pet/pet.component";
 import { AddUpdateViewPetModalComponent } from "./pages/pet/add-update-view-pet-modal/add-update-view-pet-modal.component";
 import { ActivateDeactivatePetModalComponent } from "./pages/pet/activate-deactivate-pet-modal/activate-deactivate-pet-modal.component";
+import { AddUpdateViewConsultationModalComponent } from "./pages/consultation/add-update-view-consultation-modal/add-update-view-consultation-modal.component";
+import { ActivateDeactivateConsultationModalComponent } from "./pages/consultation/activate-deactivate-consultation-modal/activate-deactivate-consultation-modal.component";
 
 @NgModule({
   declarations:
@@ -49,7 +51,10 @@ import { ActivateDeactivatePetModalComponent } from "./pages/pet/activate-deacti
       ActivateDeactivatePetClassModalComponent,
       PetComponent,
       AddUpdateViewPetModalComponent,
-      ActivateDeactivatePetModalComponent
+      ActivateDeactivatePetModalComponent,
+      ConsultationComponent,
+      AddUpdateViewConsultationModalComponent,
+      ActivateDeactivateConsultationModalComponent
     ],
   imports:
     [InternalLandingRoutingModule,

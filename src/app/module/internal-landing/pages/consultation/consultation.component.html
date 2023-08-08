@@ -1,1 +1,61 @@
-<p>consultation works!</p>
+<div class="consultation-container" *ngIf="loading">
+    <div class="overlay">
+        <app-spinner></app-spinner>
+    </div>
+  </div>
+  <div class="consultation-container" style="margin-bottom: 60px;">
+    <div class="container-center">
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-9">
+                    <h2 style="color: #A18FD3">Listado de Mascotas</h2>
+                </div>
+                <div class="col-md-3 text-right">
+                    <button class="btn button-color" (click)="addViewEditConsultationModal(null , true ,false, false)">Registrar Mascota</button>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-12 table-responsive">
+                    <table class="table table-bordered table-striped custom-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Id. Veterinario</th>
+                                <th>Nomb. Veterinario</th>
+                                <th>Especialidad Vet.</th>
+                                <th>Nomb. Cliente</th>
+                                <th>Nomb. Mascota</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let consultation of listConsultation; let i = index">
+                                <td>{{ i + 1}}</td>
+                                <td>{{consultation.idVeterinario}}</td>
+                                <td>{{consultation.nombreCompletoVeterinario}}</td>
+                                <td>{{consultation.especialidadVeterinario}}</td>
+                                <td>{{consultation.nombreCompletoCliente}}</td>
+                                <td>{{consultation.nombreMascota}}</td>
+                                <td>{{consultation.estadoConsulta === 'A' ? 'ACTIVO' : (consultation.estadoConsulta === 'I' ? 'INACTIVO' : '-')}}</td>
+                                <td class="d-flex justify-content-center">
+                                    <span class="mx-2">
+                                        <i style="color: #8C30F5" class="bi bi-eye" (click)="addViewEditConsultationModal(consultation, false, true, false)"></i>
+                                    </span>
+                                    <span class="mx-2">
+                                        <i style="color: #8C30F5" class="bi bi-pencil" (click)="addViewEditConsultationModal(consultation, false, false, true)"></i>
+                                    </span>
+                                    <span class="mx-2">
+                                        <i *ngIf="consultation.estadoConsulta == 'A'" style="color: #8C30F5" class="bi bi-trash" (click)="activateDeactivateModal(consultation)"></i>
+                                        <i *ngIf="consultation.estadoConsulta == 'I'" style="color: #8C30F5" class="bi bi-check-circle" (click)="activateDeactivateModal(consultation)"></i>
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

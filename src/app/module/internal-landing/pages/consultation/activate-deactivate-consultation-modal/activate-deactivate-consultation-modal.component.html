@@ -1,0 +1,31 @@
+<div class="modal-content" style="width: 120%;">
+  <div class="modal-header">
+    <div *ngIf="consultation?.estadoConsulta == 'I'">
+      <h4>Activar consulta</h4>
+    </div>
+    <div  *ngIf="consultation?.estadoConsulta == 'A'">
+      <h4>Inactivar consulta</h4>
+    </div>
+    <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+  </div>
+  <div class="modal-body">
+    <div class="container">
+      <div class="row">
+      <div class="row">
+        <div class="col-md-12">
+          <div *ngIf="consultation?.estadoConsulta == 'I'">
+            <p>¿Desea activar la consulta?</p>
+          </div>
+          <div *ngIf="consultation?.estadoConsulta == 'A'">
+            <p>¿Desea inactivar la consulta?</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div >
+          <button type="button" class="btn button-color" (click)="activateDeactivateConsultation()">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
