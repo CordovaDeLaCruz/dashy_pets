@@ -65,9 +65,14 @@ export class AddUpdateViewPetModalComponent implements OnInit {
     this._customerService.getListCustomer().subscribe(
       (response) => {
         this.listCustomer = response;
+        if(this.pet)
         this.petForm.patchValue({
-          idCliente: this.listCustomer[0].idCliente
+          idCliente: this.pet.idCliente
         });
+        else 
+          this.petForm.patchValue({
+            idCliente: this.listCustomer[0].idCliente
+          });
         this.loading = false
       },
       (error) => {
@@ -82,9 +87,14 @@ export class AddUpdateViewPetModalComponent implements OnInit {
     this._petClassService.getListPetClass().subscribe(
       (response) => {
         this.listPetClass = response;
-        this.petForm.patchValue({
-          idClaseMascota: this.listPetClass[0].idClaseMascota
-        });
+        if(this.pet)
+          this.petForm.patchValue({
+            idClaseMascota: this.pet.idClaseMascota
+          });
+        else
+          this.petForm.patchValue({
+            idClaseMascota: this.listPetClass[0].idClaseMascota
+          });
         this.loading = false
       },
       (error) => {
@@ -99,9 +109,14 @@ export class AddUpdateViewPetModalComponent implements OnInit {
     this._petTypeService.getListPetType().subscribe(
       (response) => {
         this.listPetType = response;
-        this.petForm.patchValue({
-          idTipoMascota: this.listPetType[0].idTipoMascota
-        });
+        if(this.pet)
+          this.petForm.patchValue({
+            idTipoMascota: this.pet.idTipoMascota
+          });
+        else 
+          this.petForm.patchValue({
+            idTipoMascota: this.listPetType[0].idTipoMascota
+          });
         this.loading = false
       },
       (error) => {

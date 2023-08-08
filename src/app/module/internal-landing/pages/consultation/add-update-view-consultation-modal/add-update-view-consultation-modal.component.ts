@@ -63,9 +63,14 @@ export class AddUpdateViewConsultationModalComponent implements OnInit {
     this._vetService.getListVet().subscribe(
       (response) => {
         this.listVet = response;
-        this.consultationForm.patchValue({
-          idVeterinario: this.listVet[0].idVeterinario
-        });
+        if(this.consultation)
+          this.consultationForm.patchValue({
+            idVeterinario: this.consultation.idVeterinario
+          });
+        else
+          this.consultationForm.patchValue({
+            idVeterinario: this.listVet[0].idVeterinario
+          });
         this.loading = false
       },
       (error) => {
@@ -80,9 +85,14 @@ export class AddUpdateViewConsultationModalComponent implements OnInit {
     this._diseaseService.getListDisease().subscribe(
       (response) => {
         this.listDisease = response;
-        this.consultationForm.patchValue({
-          idEnfermedad: this.listDisease[0].idEnfermedad
-        });
+        if(this.consultation)
+          this.consultationForm.patchValue({
+            idEnfermedad: this.consultation.idEnfermedad
+          });
+        else
+          this.consultationForm.patchValue({
+            idEnfermedad: this.listDisease[0].idEnfermedad
+          });
         this.loading = false
       },
       (error) => {
@@ -97,9 +107,14 @@ export class AddUpdateViewConsultationModalComponent implements OnInit {
     this._petService.getListPet().subscribe(
       (response) => {
         this.listPet = response;
-        this.consultationForm.patchValue({
-          idMascota: this.listPet[0].idMascota
-        });
+        if(this.consultation)
+          this.consultationForm.patchValue({
+            idMascota: this.consultation.idMascota
+          });
+        else
+          this.consultationForm.patchValue({
+            idMascota: this.listPet[0].idMascota
+          });
         this.loading = false
       },
       (error) => {

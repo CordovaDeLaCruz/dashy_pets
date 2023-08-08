@@ -18,18 +18,21 @@
             <select *ngIf="!consultation?.viewConsultation" class="form-control custom-select" formControlName="idVeterinario">
               <option *ngFor="let vet of listVet" [value]="vet.idVeterinario">{{ vet.nombreVeterinario }}</option>
             </select>
+            <input *ngIf="consultation?.viewConsultation" type="text" class="form-control" placeholder="Género" value={{consultation?.nombreCompletoVeterinario}} [readonly]="consultation?.viewConsultation">
           </div>
           <div class="col-md-4">
             <label>Mascota:</label>
             <select *ngIf="!consultation?.viewConsultation" class="form-control custom-select" formControlName="idMascota">
               <option *ngFor="let pet of listPet" [value]="pet.idMascota">{{ pet.nombreMascota }}</option>
             </select>
+            <input *ngIf="consultation?.viewConsultation" type="text" class="form-control" placeholder="Género" value={{consultation?.nombreMascota}} [readonly]="consultation?.viewConsultation">
           </div>
           <div class="col-md-4">
             <label>Enfermedad:</label>
             <select *ngIf="!consultation?.viewConsultation" class="form-control custom-select" formControlName="idEnfermedad">
               <option *ngFor="let disease of listDisease" [value]="disease.idEnfermedad">{{ disease.descripcionEnfermedad }}</option>
             </select>
+            <input *ngIf="consultation?.viewConsultation" type="text" class="form-control" placeholder="Género" value={{consultation?.descripcionEnfermedad}} [readonly]="consultation?.viewConsultation">
           </div>
         </div>
         <br>

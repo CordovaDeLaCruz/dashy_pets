@@ -11,12 +11,15 @@ export class SidebarComponent {
 
   menuOptions: MenuOption[];
   activeOption: string = 'Cliente';
+  fullName: string
 
   constructor() {
   }
 
   ngOnInit(): void {
     const storedMenu = localStorage.getItem('menu');
+    const fullName = localStorage.getItem('fullName')
+    if(fullName) this.fullName = fullName
     if (storedMenu) {
       this.menuOptions = JSON.parse(storedMenu);
     }

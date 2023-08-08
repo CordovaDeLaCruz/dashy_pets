@@ -1,5 +1,5 @@
 export class LoginModelResponse {
-    message: string
-    token: string
-  }
-  
+  message: string
+  token: string
+  nombreUsuario: string
+}

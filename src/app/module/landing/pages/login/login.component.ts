@@ -40,6 +40,8 @@ export class LoginComponent {
         (response) => {
           const token = response.token;
           const message = response.message
+          const fullName = response.nombreUsuario
+          if(fullName) localStorage.setItem('fullName', fullName);
           if (token) {
             localStorage.setItem('token', token);
             this._sidebarService.getMunuOptions().subscribe(

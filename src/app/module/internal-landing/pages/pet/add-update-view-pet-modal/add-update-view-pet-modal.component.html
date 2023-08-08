@@ -18,18 +18,21 @@
             <select *ngIf="!pet?.viewPet" class="form-control custom-select" formControlName="idCliente">
               <option *ngFor="let customer of listCustomer" [value]="customer.idCliente">{{ customer.nombreCliente }}</option>
             </select>
+            <input *ngIf="pet?.viewPet" type="text" class="form-control" placeholder="Género" value={{pet?.nombreCliente}} [readonly]="pet?.viewPet">
           </div>
           <div class="col-md-4">
             <label>Tipo de Mascota:</label>
             <select *ngIf="!pet?.viewPet" class="form-control custom-select" formControlName="idTipoMascota">
               <option *ngFor="let petType of listPetType" [value]="petType.idTipoMascota">{{ petType.descripcionTipoMascota }}</option>
             </select>
+            <input *ngIf="pet?.viewPet" type="text" class="form-control" placeholder="Género" value={{pet?.descripcionTipoMascota}} [readonly]="pet?.viewPet">
           </div>
           <div class="col-md-4">
             <label>Clase de Mascota:</label>
             <select *ngIf="!pet?.viewPet" class="form-control custom-select" formControlName="idClaseMascota">
               <option *ngFor="let petClass of listPetClass" [value]="petClass.idClaseMascota">{{ petClass.descripcionClaseMascota }}</option>
             </select>
+            <input *ngIf="pet?.viewPet" type="text" class="form-control" placeholder="Género" value={{pet?.descripcionClaseMascota}} [readonly]="pet?.viewPet">
           </div>
         </div>
         <br>
