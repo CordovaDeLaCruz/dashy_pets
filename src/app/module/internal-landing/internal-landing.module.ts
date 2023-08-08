@@ -19,6 +19,9 @@ import { ActivateDeactivateVetModalComponent } from "./pages/vet/activate-deacti
 import { PetTypeComponent } from "./pages/pet-type/pet-type.component";
 import { AddUpdateViewPetTypeModalComponent } from "./pages/pet-type/add-update-view-pet-type-modal/add-update-view-pet-type-modal.component";
 import { ActivateDeactivatePetTypeModalComponent } from "./pages/pet-type/activate-deactivate-pet-type-modal/activate-deactivate-pet-type-modal.component";
+import { PetClassComponent } from "./pages/pet-class/pet-class.component";
+import { AddUpdateViewPetClassModalComponent } from "./pages/pet-class/add-update-view-pet-class-modal/add-update-view-pet-class-modal.component";
+import { ActivateDeactivatePetClassModalComponent } from "./pages/pet-class/activate-deactivate-pet-class-modal/activate-deactivate-pet-class-modal.component";
 
 @NgModule({
   declarations:
@@ -37,7 +40,10 @@ import { ActivateDeactivatePetTypeModalComponent } from "./pages/pet-type/activa
       ActivateDeactivateVetModalComponent,
       PetTypeComponent,
       AddUpdateViewPetTypeModalComponent,
-      ActivateDeactivatePetTypeModalComponent
+      ActivateDeactivatePetTypeModalComponent,
+      PetClassComponent,
+      AddUpdateViewPetClassModalComponent,
+      ActivateDeactivatePetClassModalComponent
     ],
   imports:
     [InternalLandingRoutingModule,

@@ -8,6 +8,7 @@ import { VetComponent } from "./pages/vet/vet.component";
 import { DiseaseComponent } from "./pages/disease/disease.component";
 import { SpecialtyComponent } from "./pages/specialty/specialty.component";
 import { PetTypeComponent } from "./pages/pet-type/pet-type.component";
+import { PetClassComponent } from "./pages/pet-class/pet-class.component";
 
 const routes: Routes = [
   {
@@ -18,6 +19,7 @@ const routes: Routes = [
       { path: 'Enfermedad', component: DiseaseComponent },
       { path: 'Especialidad', component: SpecialtyComponent },
       { path: 'Tipo Mascota', component: PetTypeComponent },
+      { path: 'Clase Mascota', component: PetClassComponent },
       { path: 'Consulta', component: ConsultationComponent },
       { path: 'Mascota', component: PetComponent },
       { path: 'Veterinario', component: VetComponent },

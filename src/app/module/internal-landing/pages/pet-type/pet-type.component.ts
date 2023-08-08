@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { ToastrService } from 'ngx-toastr';
-import { PetTypeModel } from 'src/app/module/models/pet-type/pet-type-modules';
+import { PetTypeModel } from 'src/app/module/models/pet-type/pet-type-models';
 import { ActivateDeactivatePetTypeModalComponent } from './activate-deactivate-pet-type-modal/activate-deactivate-pet-type-modal.component';
 import { AddUpdateViewPetTypeModalComponent } from './add-update-view-pet-type-modal/add-update-view-pet-type-modal.component';
 import { PetTypeService } from './service/pet-type.service';

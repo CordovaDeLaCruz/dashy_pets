@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MdbModalRef } from "mdb-angular-ui-kit/modal";
 import { ToastrService } from "ngx-toastr";
-import { PetTypeModel } from "src/app/module/models/pet-type/pet-type-modules";
+import { PetTypeModel } from "src/app/module/models/pet-type/pet-type-models";
 import { PetTypeService } from "../service/pet-type.service";
 
 @Component({
