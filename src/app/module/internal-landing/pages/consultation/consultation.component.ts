@@ -64,8 +64,14 @@ export class ConsultationComponent implements OnInit {
   activateDeactivateModal(consultation: ConsultationModel){
 
     this.selectConsultation = consultation
-    if(this.selectConsultation.estadoConsulta === "A") this.selectConsultation.activateConsultation = true
-    if(this.selectConsultation.estadoConsulta === "I") this.selectConsultation.deactivateConsultation = true
+    if(this.selectConsultation.estadoConsulta === "A") {
+      this.selectConsultation.activateConsultation = true
+      this.selectConsultation.deactivateConsultation = false
+    }
+    if(this.selectConsultation.estadoConsulta === "I") {
+      this.selectConsultation.deactivateConsultation = true
+      this.selectConsultation.activateConsultation = false
+    }
 
     this.activateDeactivateModalRef = this._modalService.open(ActivateDeactivateConsultationModalComponent, {
       ignoreBackdropClick: true

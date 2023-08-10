@@ -28,7 +28,7 @@ export class ActivateDeactivateVetModalComponent implements OnInit {
   activateDeactivateVet() {
     this.loading = true
     if(this.vet){
-      if(this.vet.estadoVeterinario == "A"){
+      if(this.vet.activateVet){
         this.vet.estadoVeterinario = "I"
         this._vetService.patchVet(this.vet).subscribe(
           (response) => {

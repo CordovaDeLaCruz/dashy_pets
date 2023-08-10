@@ -63,8 +63,14 @@ export class CustomerComponent implements OnInit {
 
   activateDeactivateModa(customer: CustomerModel){
     this.selectCustomer = customer
-    if(this.selectCustomer.estadoCliente === "A") this.selectCustomer.activateCustomer = true
-    if(this.selectCustomer.estadoCliente === "I") this.selectCustomer.deactivateCustomer = true
+    if(this.selectCustomer.estadoCliente === "A") {
+      this.selectCustomer.activateCustomer = true
+      this.selectCustomer.deactivateCustomer = false
+    }
+    if(this.selectCustomer.estadoCliente === "I") {
+      this.selectCustomer.deactivateCustomer = true
+      this.selectCustomer.activateCustomer = false
+    }
     this.activateDeactivateModalRef = this._modalService.open(ActivateDeactivateCustomerModalComponent, {
       ignoreBackdropClick: true
     });

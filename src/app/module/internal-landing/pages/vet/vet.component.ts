@@ -62,13 +62,21 @@ export class VetComponent implements OnInit {
   }
 
   activateDeactivateModal(vet: VetModel){
+    this.selectVet = vet
+    if(this.selectVet.estadoVeterinario === "A"){
+      this.selectVet.activateVet = true
+      this.selectVet.deactivateVet = false
+    }
+    if(this.selectVet.estadoVeterinario === "I"){
+      this.selectVet.activateVet = false
+      this.selectVet.deactivateVet = true
+    }
     this.activateDeactivateModalRef = this._modalService.open(ActivateDeactivateVetModalComponent, {
       ignoreBackdropClick: true
     });
     this.activateDeactivateModalRef.component.vet = vet
 
     this.activateDeactivateModalRef.onClose.subscribe(() => {
-      this.getListVet()
     });
   }
 

@@ -28,7 +28,7 @@ export class ActivateDeactivatePetModalComponent implements OnInit {
   activateDeactivatePet() {
     this.loading = true
     if(this.pet){
-      if(this.pet.estadoMascota == "A"){
+      if(this.pet.activatePet){
         this.pet.estadoMascota = "I"
         this._petService.patchPet(this.pet).subscribe(
           (response) => {

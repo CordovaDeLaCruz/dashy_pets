@@ -66,13 +66,21 @@ export class DiseaseComponent implements OnInit {
   }
 
   activateDeactivateModal(disease: DiseaseModel){
+    this.selectDisease = disease
+    if(this.selectDisease.estadoEnfermedad === "A") {
+      this.selectDisease.activateDisease = true
+      this.selectDisease.deactivateDisease = false
+    }
+    if(this.selectDisease.estadoEnfermedad === "I") {
+      this.selectDisease.deactivateDisease = true
+      this.selectDisease.activateDisease = false
+    }
     this.activateDeactivateDisease = this._modalService.open(ActivateDeactivateDiseaseModalComponent, {
       ignoreBackdropClick: true
     });
-    this.activateDeactivateDisease.component.disease = disease
+    this.activateDeactivateDisease.component.disease = this.selectDisease
 
     this.activateDeactivateDisease.onClose.subscribe(() => {
-      this.getListDisease()
     });
   }
 

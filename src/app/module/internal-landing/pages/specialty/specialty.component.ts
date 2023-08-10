@@ -67,8 +67,14 @@ export class SpecialtyComponent implements OnInit {
 
   activateDeactivateModal(specialty: SpecialtyModel) {
     this.selectSpecialty = specialty
-    if(this.selectSpecialty.estadoEspecialidad === "A") this.selectSpecialty.activateSpecialty = true
-    if(this.selectSpecialty.estadoEspecialidad === "I") this.selectSpecialty.deactivateSpecialty = true
+    if(this.selectSpecialty.estadoEspecialidad === "A"){
+      this.selectSpecialty.activateSpecialty = true
+      this.selectSpecialty.deactivateSpecialty = false
+    }
+    if(this.selectSpecialty.estadoEspecialidad === "I"){
+      this.selectSpecialty.activateSpecialty = false
+      this.selectSpecialty.deactivateSpecialty = true
+    }
 
 
     this.activateDeactivateSpecialty = this._modalService.open(ActivateDeactivateSpecialtyModalComponent, {

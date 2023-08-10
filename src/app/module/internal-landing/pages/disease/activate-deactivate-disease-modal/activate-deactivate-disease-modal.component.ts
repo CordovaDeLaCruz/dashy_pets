@@ -27,7 +27,7 @@ export class ActivateDeactivateDiseaseModalComponent implements OnInit {
   activateDeactivateDisease() {
     this.loading = true
     if(this.disease){
-      if(this.disease.estadoEnfermedad == "A"){
+      if(this.disease.activateDisease){
         this.disease.estadoEnfermedad = "I"
         this._diseaseService.patchDisease(this.disease).subscribe(
           (response) => {

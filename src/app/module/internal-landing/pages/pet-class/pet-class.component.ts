@@ -66,13 +66,21 @@ export class PetClassComponent implements OnInit {
   }
 
   activateDeactivateModal(petClass: PetClassModel){
+    this.selectPetClass = petClass
+    if(this.selectPetClass.estadoClaseMascota === "A") {
+      this.selectPetClass.activatePetClass = true
+      this.selectPetClass.dactivatePetClass = false
+    }
+    if(this.selectPetClass.estadoClaseMascota === "I"){
+      this.selectPetClass.dactivatePetClass = true
+      this.selectPetClass.activatePetClass = false
+    }
     this.activateDeactivatePetClass = this._modalService.open(ActivateDeactivatePetClassModalComponent, {
       ignoreBackdropClick: true
     });
     this.activateDeactivatePetClass.component.petClass = petClass
 
     this.activateDeactivatePetClass.onClose.subscribe(() => {
-      this.getListPetClass()
     });
   }
 
