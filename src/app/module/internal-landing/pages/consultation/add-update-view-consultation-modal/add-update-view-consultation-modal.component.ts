@@ -63,7 +63,7 @@ export class AddUpdateViewConsultationModalComponent implements OnInit {
     this._vetService.getListVet().subscribe(
       (response) => {
         this.listVet = response.filter(elemet => elemet.estadoVeterinario === "A")
-        this.listVet = this.listVet.slice().sort((a, b) => a.nombreVeterinario.localeCompare(b.nombreVeterinario))
+        this.listVet = this.listVet.slice().sort((a, b) => a.apellidoPaterno.localeCompare(b.apellidoPaterno))
         if(this.consultation)
           this.consultationForm.patchValue({
             idVeterinario: this.consultation.idVeterinario
