@@ -64,7 +64,9 @@ export class AddUpdateViewPetModalComponent implements OnInit {
     this.loading = true
     this._customerService.getListCustomer().subscribe(
       (response) => {
-        this.listCustomer = response;
+        this.listCustomer = response.filter(elemet => elemet.estadoCliente === "A")
+        this.listCustomer = this.listCustomer.slice().sort((a, b) => a.apellidoPaterno.localeCompare(b.apellidoPaterno))
+        console.log(this.listCustomer)
         if(this.pet)
         this.petForm.patchValue({
           idCliente: this.pet.idCliente
@@ -86,7 +88,8 @@ export class AddUpdateViewPetModalComponent implements OnInit {
     this.loading = true
     this._petClassService.getListPetClass().subscribe(
       (response) => {
-        this.listPetClass = response;
+        this.listPetClass = response.filter(elemet => elemet.estadoClaseMascota === "A")
+        this.listPetClass = this.listPetClass.slice().sort((a, b) => a.descripcionClaseMascota.localeCompare(b.descripcionClaseMascota))
         if(this.pet)
           this.petForm.patchValue({
             idClaseMascota: this.pet.idClaseMascota
@@ -108,7 +111,8 @@ export class AddUpdateViewPetModalComponent implements OnInit {
     this.loading = true
     this._petTypeService.getListPetType().subscribe(
       (response) => {
-        this.listPetType = response;
+        this.listPetType = response.filter(elemet => elemet.estadoTipoMascota === "A")
+        this.listPetType = this.listPetType.slice().sort((a, b) => a.descripcionTipoMascota.localeCompare(b.descripcionTipoMascota))
         if(this.pet)
           this.petForm.patchValue({
             idTipoMascota: this.pet.idTipoMascota

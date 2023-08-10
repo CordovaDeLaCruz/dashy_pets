@@ -57,7 +57,8 @@ export class AddUpdateVetModalComponent implements OnInit {
     this.loading = true
     this._specialtyService.getListSpecialty().subscribe(
       (response) => {
-        this.listSpecialty = response;
+        this.listSpecialty = response.filter(elemet => elemet.estadoEspecialidad === "A")
+        this.listSpecialty = this.listSpecialty.slice().sort((a, b) => a.descripcionEspecialidad.localeCompare(b.descripcionEspecialidad))
         this.vetForm.patchValue({
           idEspecialidad: this.listSpecialty[0].idEspecialidad
         });

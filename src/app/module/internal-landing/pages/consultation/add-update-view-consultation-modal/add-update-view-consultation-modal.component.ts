@@ -62,7 +62,8 @@ export class AddUpdateViewConsultationModalComponent implements OnInit {
     this.loading = true
     this._vetService.getListVet().subscribe(
       (response) => {
-        this.listVet = response;
+        this.listVet = response.filter(elemet => elemet.estadoVeterinario === "A")
+        this.listVet = this.listVet.slice().sort((a, b) => a.nombreVeterinario.localeCompare(b.nombreVeterinario))
         if(this.consultation)
           this.consultationForm.patchValue({
             idVeterinario: this.consultation.idVeterinario
@@ -84,7 +85,8 @@ export class AddUpdateViewConsultationModalComponent implements OnInit {
     this.loading = true
     this._diseaseService.getListDisease().subscribe(
       (response) => {
-        this.listDisease = response;
+        this.listDisease = response.filter(elemet => elemet.estadoEnfermedad === "A")
+        this.listDisease = this.listDisease.slice().sort((a, b) => a.descripcionEnfermedad.localeCompare(b.descripcionEnfermedad))
         if(this.consultation)
           this.consultationForm.patchValue({
             idEnfermedad: this.consultation.idEnfermedad
@@ -106,7 +108,8 @@ export class AddUpdateViewConsultationModalComponent implements OnInit {
     this.loading = true
     this._petService.getListPet().subscribe(
       (response) => {
-        this.listPet = response;
+        this.listPet = response.filter(elemet => elemet.estadoMascota === "A")
+        this.listPet = this.listPet.slice().sort((a, b) => a.nombreMascota.localeCompare(b.nombreMascota))
         if(this.consultation)
           this.consultationForm.patchValue({
             idMascota: this.consultation.idMascota
