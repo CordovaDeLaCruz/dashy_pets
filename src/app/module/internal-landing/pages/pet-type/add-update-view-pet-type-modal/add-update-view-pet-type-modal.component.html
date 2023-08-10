@@ -7,11 +7,11 @@
   <div class="modal-content" style="width: 120%;">
     <div class="modal-header">
       <div *ngIf="!petType">
-        <h4 class="modal-title">Agregar Tipo de Mascota</h4>
+        <h4 class="modal-title">Agregar raza de perro</h4>
       </div>
       <div *ngIf="petType">
-        <h4 class="modal-title" *ngIf="petType.viewPetType">Ver Tipo de Mascota</h4>
-        <h4 class="modal-title" *ngIf="petType.editPetType">Editar Tipo de Mascota</h4>
+        <h4 class="modal-title" *ngIf="petType.viewPetType">Ver raza de perro</h4>
+        <h4 class="modal-title" *ngIf="petType.editPetType">Editar raza de perro</h4>
       </div>
       <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
     </div>
@@ -20,8 +20,8 @@
         <form [formGroup]="petTypeForm">
           <div class="row">
             <div class="col-md-12">
-              <label>Descripción Tipo de Mascota:</label>
-              <input type="text" class="form-control" placeholder="Ingresa observaciones"
+              <label>Descripción raza de perro:</label>
+              <input type="text" class="form-control" placeholder="Ingresa nombre de la raza"
                 formControlName="descripcionTipoMascota" [readonly]="petType?.viewPetType">
             </div>
           </div>

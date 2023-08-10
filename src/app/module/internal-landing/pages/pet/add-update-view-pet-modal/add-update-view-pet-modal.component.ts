@@ -55,7 +55,7 @@ export class AddUpdateViewPetModalComponent implements OnInit {
     if (this.pet) {
       this.pet.fechaNacimiento = this.pet.fechaNacimiento.substring(0, 10);
       if (this.pet.viewPet)
-        this.pet.sexo = this.pet.sexo === "M" ? "Masculino" : "Femenino";
+        this.pet.sexo = this.pet.sexo === "M" ? "Macho" : "Hembra";
       this.petForm.patchValue(this.pet)
     }
   }
@@ -132,12 +132,12 @@ export class AddUpdateViewPetModalComponent implements OnInit {
       this._petService.postPet(this.petForm.value).subscribe(
         (response) => {
           this.loading = false
-          this._toastr.success(response.message, "Registrar Peterinario")
+          this._toastr.success(response.message, "Registrar mascota")
           this._modalRef.close();
         },
         (error) => {
           this.loading = false;
-          this._toastr.error(error.message, "Registrar Peterinario")
+          this._toastr.error(error.message, "Registrar mascota")
           this._modalRef.close();
         }
       )

@@ -7,11 +7,11 @@
   <div class="modal-content" style="width: 120%;">
     <div class="modal-header">
       <div *ngIf="!petClass">
-        <h4 class="modal-title">Agregar Clase de Mascota</h4>
+        <h4 class="modal-title">Agregar tamaño de perro</h4>
       </div>
       <div *ngIf="petClass">
-        <h4 class="modal-title" *ngIf="petClass.viewPetClass">Ver Clase de Mascota</h4>
-        <h4 class="modal-title" *ngIf="petClass.editPetClass">Editar Clase de Mascota</h4>
+        <h4 class="modal-title" *ngIf="petClass.viewPetClass">Ver tamaño de perro</h4>
+        <h4 class="modal-title" *ngIf="petClass.editPetClass">Editar tamaño de perro</h4>
       </div>
       <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
     </div>
@@ -20,8 +20,8 @@
         <form [formGroup]="petClassForm">
           <div class="row">
             <div class="col-md-12">
-              <label>Descripción Clase de Mascota:</label>
-              <input type="text" class="form-control" placeholder="Ingresa observaciones"
+              <label>Descripción tamaño de perro:</label>
+              <input type="text" class="form-control" placeholder="Ingresa tamaño de perro"
                 formControlName="descripcionClaseMascota" [readonly]="petClass?.viewPetClass">
             </div>
           </div>

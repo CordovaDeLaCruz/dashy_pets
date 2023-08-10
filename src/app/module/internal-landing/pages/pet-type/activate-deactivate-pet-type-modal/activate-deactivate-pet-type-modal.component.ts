@@ -32,12 +32,12 @@ export class ActivateDeactivatePetTypeModalComponent implements OnInit {
         this._petTypeService.patchPetType(this.petType).subscribe(
           (response) => {
             this.loading = false
-            this._toastr.success(response.message, "Inactivar Tipo de Mascota")
+            this._toastr.success(response.message, "Inactivar raza de perro")
             this._modalRef.close();
           },
           (error) => {
             this.loading = false;
-            this._toastr.error(error.message, "Inactivar Tipo de Mascota")
+            this._toastr.error(error.message, "Inactivar raza de perro")
             this._modalRef.close();
           }
         )
@@ -46,12 +46,12 @@ export class ActivateDeactivatePetTypeModalComponent implements OnInit {
         this._petTypeService.patchPetType(this.petType).subscribe(
           (response) => {
             this.loading = false
-            this._toastr.success(response.message, "Activar Tipo de Mascota")
+            this._toastr.success(response.message, "Activar raza de perro")
             this._modalRef.close();
           },
           (error) => {
             this.loading = false;
-            this._toastr.error(error.message, "Activar Tipo de Mascota")
+            this._toastr.error(error.message, "Activar raza de perro")
             this._modalRef.close();
           }
         )

@@ -40,12 +40,12 @@ export class AddUpdateViewPetTypeModalComponent implements OnInit {
       this._petTypeService.postPetType(this.addPetType).subscribe(
         (response) => {
           const message = response.message
-          this._toastr.success(message, "Agregar Tipo de Mascota")
+          this._toastr.success(message, "Agregar raza de perro")
           this.closeModal()
         },
         (error) => {
           this.loading = false;
-          this._toastr.error(error.message, "Agregar Tipo de Mascota")
+          this._toastr.error(error.message, "Agregar raza de perro")
         }
       )
     }
@@ -59,12 +59,12 @@ export class AddUpdateViewPetTypeModalComponent implements OnInit {
         this._petTypeService.patchPetType(this.petType).subscribe(
           (response) => {
             this.loading = false
-            this._toastr.success(response.message, "Actualizar Tipo de Mascota")
+            this._toastr.success(response.message, "Actualizar raza de perro")
             this._modalRef.close();
           },
           (error) => {
             this.loading = false;
-            this._toastr.error(error.message, "Actualizar Tipo de Mascota")
+            this._toastr.error(error.message, "Actualizar raza de perro")
             this._modalRef.close();
           }
         )

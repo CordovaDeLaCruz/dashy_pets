@@ -21,14 +21,14 @@
             <input *ngIf="pet?.viewPet" type="text" class="form-control" placeholder="Género" value={{pet?.nombreCliente}} [readonly]="pet?.viewPet">
           </div>
           <div class="col-md-4">
-            <label>Tipo de Mascota:</label>
+            <label>Raza de perro:</label>
             <select *ngIf="!pet?.viewPet" class="form-control custom-select" formControlName="idTipoMascota">
               <option *ngFor="let petType of listPetType" [value]="petType.idTipoMascota">{{ petType.descripcionTipoMascota }}</option>
             </select>
             <input *ngIf="pet?.viewPet" type="text" class="form-control" placeholder="Género" value={{pet?.descripcionTipoMascota}} [readonly]="pet?.viewPet">
           </div>
           <div class="col-md-4">
-            <label>Clase de Mascota:</label>
+            <label>Tamaño de perro:</label>
             <select *ngIf="!pet?.viewPet" class="form-control custom-select" formControlName="idClaseMascota">
               <option *ngFor="let petClass of listPetClass" [value]="petClass.idClaseMascota">{{ petClass.descripcionClaseMascota }}</option>
             </select>
@@ -40,8 +40,8 @@
           <div class="col-md-4">
             <label>Sexo:</label>
             <select *ngIf="!pet?.viewPet" class="form-control custom-select" formControlName="sexo">
-              <option value="M">Masculino</option>
-              <option value="F">Femenino</option>
+              <option value="M">Macho</option>
+              <option value="H">Hembra</option>
             </select>
             <input *ngIf="pet?.viewPet" type="text" class="form-control" placeholder="Género" formControlName="sexo" [readonly]="pet?.viewPet">
           </div>

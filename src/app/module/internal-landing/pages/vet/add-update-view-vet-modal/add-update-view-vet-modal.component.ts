@@ -76,12 +76,12 @@ export class AddUpdateVetModalComponent implements OnInit {
       this._vetService.postVet(this.vetForm.value).subscribe(
         (response) => {
           this.loading = false
-          this._toastr.success(response.message, "Registrar Veterinario")
+          this._toastr.success(response.message, "Registrar veterinario")
           this._modalRef.close();
         },
         (error) => {
           this.loading = false;
-          this._toastr.error(error.message, "Registrar Veterinario")
+          this._toastr.error(error.message, "Registrar veterinario")
           this._modalRef.close();
         }
       )

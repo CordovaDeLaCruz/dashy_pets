@@ -75,6 +75,7 @@
             <select *ngIf="!vet?.viewVet" class="form-control custom-select" formControlName="idEspecialidad">
               <option *ngFor="let specialty of listSpecialty" [value]="specialty.idEspecialidad">{{ specialty.descripcionEspecialidad }}</option>
             </select>
+            <input *ngIf="vet?.viewVet" type="text" class="form-control" placeholder="Género" value={{vet?.descripcionEspecialidad}} [readonly]="vet?.viewVet">
           </div>
         </div>
         <div class="modal-footer">

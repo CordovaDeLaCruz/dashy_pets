@@ -40,12 +40,12 @@ export class AddUpdateViewPetClassModalComponent implements OnInit {
       this._petClassService.postPetClass(this.addPetClass).subscribe(
         (response) => {
           const message = response.message
-          this._toastr.success(message, "Agregar Clase de Mascota")
+          this._toastr.success(message, "Agregar tamaño de perro")
           this.closeModal()
         },
         (error) => {
           this.loading = false;
-          this._toastr.error(error.message, "Agregar Clase de Mascota")
+          this._toastr.error(error.message, "Agregar tamaño de perro")
         }
       )
     }
@@ -59,12 +59,12 @@ export class AddUpdateViewPetClassModalComponent implements OnInit {
         this._petClassService.patchPetClass(this.petClass).subscribe(
           (response) => {
             this.loading = false
-            this._toastr.success(response.message, "Actualizar Clase de Mascota")
+            this._toastr.success(response.message, "Actualizar tamaño de perro")
             this._modalRef.close();
           },
           (error) => {
             this.loading = false;
-            this._toastr.error(error.message, "Actualizar Clase de Mascota")
+            this._toastr.error(error.message, "Actualizar tamaño de perro")
             this._modalRef.close();
           }
         )
