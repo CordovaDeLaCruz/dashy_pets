@@ -5,6 +5,8 @@ export class SpecialtyModel {
   viewSpecialty: boolean
   editSpecialty: boolean
   addSpecialty: boolean
+  activateSpecialty: boolean =  false
+  deactivateSpecialty: boolean = false
 }
 
 export class CreateSpecialtyModelRequest {

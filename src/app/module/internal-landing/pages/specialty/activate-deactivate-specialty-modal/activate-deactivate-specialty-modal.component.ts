@@ -27,7 +27,7 @@ export class ActivateDeactivateSpecialtyModalComponent implements OnInit {
   activateDeactivateSpecialty() {
     this.loading = true
     if(this.specialty){
-      if(this.specialty.estadoEspecialidad == "A"){
+      if(this.specialty.activateSpecialty){
         this.specialty.estadoEspecialidad = "I"
         this._specialtyService.patchSpecialty(this.specialty).subscribe(
           (response) => {
@@ -42,6 +42,27 @@ export class ActivateDeactivateSpecialtyModalComponent implements OnInit {
           }
         )
       }else{
+        this.specialty.estadoEspecialidad = "A"
+        this._specialtyService.patchSpecialty(this.specialty).subscribe(
+          (response) => {
+            this.loading = false
+            this._toastr.success(response.message, "Activar Especialidad")
+            this._modalRef.close();
+          },
+          (error) => {
+            this.loading = false;
+            this._toastr.error(error.message, "Activar Especialidad")
+            this._modalRef.close();
+          }
+        )
+      }
+    }
+  }
+
+  deactivateSpecialty() {
+    this.loading = true
+    if(this.specialty){
+      if(this.specialty.deactivateSpecialty){
         this.specialty.estadoEspecialidad = "A"
         this._specialtyService.patchSpecialty(this.specialty).subscribe(
           (response) => {

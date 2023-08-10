@@ -16,6 +16,8 @@ export class PetModel {
   addPet: boolean
   editPet: boolean
   viewPet: boolean
+  activatePet: boolean = false
+  deactivatePet: boolean = false
 }
 
 export class CreatePetModelRequest {

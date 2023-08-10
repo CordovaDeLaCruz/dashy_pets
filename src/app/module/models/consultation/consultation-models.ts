@@ -19,6 +19,8 @@ export class ConsultationModel {
     editConsultation: boolean
     idMascota: number
     idEnfermedad: number
+    activateConsultation: boolean = false
+    deactivateConsultation: boolean = false
 }
 
 export class CreateConsultationModelRequest {

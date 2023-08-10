@@ -5,6 +5,8 @@ export class PetClassModel {
     addPetClass: boolean
     editPetClass: boolean
     viewPetClass: boolean
+    activatePetClass: boolean = false
+    dactivatePetClass: boolean = false
 }
 
 export class CreatePetClassModelRequest {

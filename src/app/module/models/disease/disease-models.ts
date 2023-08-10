@@ -5,6 +5,8 @@ export class DiseaseModel {
   viewDisease: boolean
   editDisease: boolean
   addDisease: boolean
+  activateDisease: boolean = false
+  deactivateDisease: boolean = false
 }
 
 export class CreateDiseaseModelRequest {

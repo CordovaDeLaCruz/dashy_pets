@@ -28,7 +28,7 @@ export class ActivateDeactivateConsultationModalComponent implements OnInit {
   activateDeactivateConsultation() {
     this.loading = true
     if(this.consultation){
-      if(this.consultation.estadoConsulta == "A"){
+      if(this.consultation.activateConsultation){
         this.consultation.estadoConsulta = "I"
         this._consultationService.patchConsultation(this.consultation).subscribe(
           (response) => {

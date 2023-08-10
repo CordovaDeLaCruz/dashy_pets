@@ -28,7 +28,7 @@ export class ActivateDeactivateCustomerModalComponent implements OnInit {
   activateDeactivateCustomer() {
     this.loading = true
     if(this.customer){
-      if(this.customer.estadoCliente == "A"){
+      if(this.customer.activateCustomer){
         this.customer.estadoCliente = "I"
         this._customerService.patchCustomer(this.customer).subscribe(
           (response) => {

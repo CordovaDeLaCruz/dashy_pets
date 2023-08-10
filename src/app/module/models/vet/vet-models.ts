@@ -19,6 +19,8 @@ export class VetModel {
   addVet: boolean
   editVet: boolean
   viewVet: boolean
+  activateVet: boolean = false
+  deactivateVet: boolean = false
 }
 
 export class CreateVetModelRequest {
