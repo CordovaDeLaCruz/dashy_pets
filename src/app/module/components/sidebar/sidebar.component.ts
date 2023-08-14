@@ -10,7 +10,7 @@ import { SidebarService } from '../../services/sidebar/sidebar.service';
 export class SidebarComponent {
 
   menuOptions: MenuOption[];
-  activeOption: string = 'Cliente';
+  activeOption: string = 'cliente';
   fullName: string
 
   constructor() {

@@ -48,10 +48,11 @@ export class LoginComponent {
               (response: MenuOption[]) => {
                 this.menuOptionsAll = response
                 this.menuOptionsAll.forEach(element => {
+                  element.routeInApp = element.descripcionPermisoApp.toLowerCase().replace(/\s/g, '')
                   if (element.estadoPermisoApp === "A") this.activeMenuOptions.push(element)
                 });
                 localStorage.setItem('menu', JSON.stringify(this.activeMenuOptions))
-                this._router.navigateByUrl('/internal/Cliente');
+                this._router.navigateByUrl('/internal/cliente');
                 this.loading = false;
                 this._toastr.success(message, "Inicio de sesión")
               },

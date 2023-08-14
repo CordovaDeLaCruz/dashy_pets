@@ -66,7 +66,6 @@ export class AddUpdateViewPetModalComponent implements OnInit {
       (response) => {
         this.listCustomer = response.filter(elemet => elemet.estadoCliente === "A")
         this.listCustomer = this.listCustomer.slice().sort((a, b) => a.apellidoPaterno.localeCompare(b.apellidoPaterno))
-        console.log(this.listCustomer)
         if(this.pet)
         this.petForm.patchValue({
           idCliente: this.pet.idCliente

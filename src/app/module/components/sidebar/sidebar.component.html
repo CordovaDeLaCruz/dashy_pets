@@ -5,9 +5,9 @@
   <hr>
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item" *ngFor="let option of menuOptions">
-      <a class="nav-link" [routerLink] = "['/internal/' + option.descripcionPermisoApp]"
-        [ngClass]="{'active': isActive(option.descripcionPermisoApp), 'inactive': !isActive(option.descripcionPermisoApp)}"
-        (click)="setActive(option.descripcionPermisoApp)">
+      <a class="nav-link" [routerLink] = "['/internal/' + option.routeInApp]"
+        [ngClass]="{'active': isActive(option.routeInApp), 'inactive': !isActive(option.routeInApp)}"
+        (click)="setActive(option.routeInApp)">
         <span>{{ option.descripcionPermisoApp }}</span>
       </a>
     </li>
