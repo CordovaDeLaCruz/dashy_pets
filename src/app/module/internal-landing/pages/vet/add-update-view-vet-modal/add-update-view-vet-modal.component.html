@@ -68,7 +68,10 @@
           </div>
           <div class="col-md-4">
             <label>Usuario:</label>
-            <input type="text" class="form-control" placeholder="Usuario" formControlName="usuario" [readonly]="vet?.viewVet">
+            <select *ngIf="!vet?.viewVet" class="form-control custom-select" formControlName="usuario">
+              <option *ngFor="let user of listUser" [value]="user.usuario">{{ user.usuario }}</option>
+            </select>
+            <input *ngIf="vet?.viewVet" type="text" class="form-control" placeholder="Género" value={{vet?.usuario}} [readonly]="vet?.viewVet">
           </div>
           <div class="col-md-4">
             <label>Especialidad:</label>

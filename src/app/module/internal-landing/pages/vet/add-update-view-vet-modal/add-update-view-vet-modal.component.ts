@@ -6,6 +6,8 @@ import { CreateVetModelRequest, VetModel } from "src/app/module/models/vet/vet-m
 import { VetService } from "../service/vet.service";
 import { SpecialtyService } from "../../specialty/service/specialty.service";
 import { SpecialtyModel } from "src/app/module/models/specialty/specialty-models";
+import { UserModel } from "src/app/module/models/user/user-models";
+import { UserService } from "../../user/service/user.service";
 
 @Component({
   selector: 'app-add-update-view-vet-modal',
@@ -18,13 +20,15 @@ export class AddUpdateVetModalComponent implements OnInit {
   vetForm: FormGroup;
   newVet: CreateVetModelRequest = new CreateVetModelRequest();
   listSpecialty: SpecialtyModel[] = []
+  listUser: UserModel[] = []
 
   constructor(
     private _modalRef: MdbModalRef<AddUpdateVetModalComponent>,
     private _formBuilder: FormBuilder,
     private _vetService: VetService,
     private _toastr: ToastrService,
-    private _specialtyService: SpecialtyService) {
+    private _specialtyService: SpecialtyService,
+    private _userService: UserService) {
 
   }
   ngOnInit(): void {
@@ -44,6 +48,7 @@ export class AddUpdateVetModalComponent implements OnInit {
     });
 
     this.getListSpecialty()
+    this.getListUser()
 
     if (this.vet) {
       this.vet.fechaNacimiento = this.vet.fechaNacimiento.substring(0, 10);
@@ -59,14 +64,42 @@ export class AddUpdateVetModalComponent implements OnInit {
       (response) => {
         this.listSpecialty = response.filter(elemet => elemet.estadoEspecialidad === "A")
         this.listSpecialty = this.listSpecialty.slice().sort((a, b) => a.descripcionEspecialidad.localeCompare(b.descripcionEspecialidad))
-        this.vetForm.patchValue({
-          idEspecialidad: this.listSpecialty[0].idEspecialidad
-        });
+        if (this.vet)
+          this.vetForm.patchValue({
+            idEspecialidad: this.vet.idEspecialidad
+          });
+        else
+          this.vetForm.patchValue({
+            idEspecialidad: this.listSpecialty[0].idEspecialidad
+          });
         this.loading = false
       },
       (error) => {
         this.loading = false
         this._toastr.error(error.error.error, "Lista de Especialidades")
+      }
+    );
+  }
+
+  getListUser() {
+    this.loading = true
+    this._userService.getListUser().subscribe(
+      (response) => {
+        this.listUser = response.filter(elemet => elemet.estadoUsuario === "A")
+        this.listUser = this.listUser.slice().sort((a, b) => a.usuario.localeCompare(b.usuario))
+        if (this.vet)
+          this.vetForm.patchValue({
+            usuario: this.vet.usuario
+          });
+        else
+          this.vetForm.patchValue({
+            usuario: this.listUser[0].usuario
+          });
+        this.loading = false
+      },
+      (error) => {
+        this.loading = false
+        this._toastr.error(error.error.error, "Lista de Usuarios")
       }
     );
   }
