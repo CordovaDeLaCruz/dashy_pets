@@ -51,6 +51,28 @@
           </div>
         </div>
         <br>
+        <div *ngIf="consultation?.viewConsultation">
+          <div class="row">
+            <div class="col-md-6">
+              <label>Especialidad:</label>
+              <input type="text" class="form-control" placeholder="Especialidad" value={{consultation?.especialidadVeterinario}} [readonly]="consultation?.viewConsultation">
+            </div>
+            <div class="col-md-6">
+              <label>Nombre del cliente:</label>
+              <input type="text" class="form-control" placeholder="Cliente" value={{consultation?.nombreCompletoCliente}} [readonly]="consultation?.viewConsultation">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label>Raza de perro:</label>
+              <input type="text" class="form-control" placeholder="Raza de perro" value={{consultation?.descripcionTipoMascota}} [readonly]="consultation?.viewConsultation">
+            </div>
+            <div class="col-md-6">
+              <label>Tamaño de perro:</label>
+              <input type="text" class="form-control" placeholder="Tamaño de perro" value={{consultation?.descripcionClaseMascota}} [readonly]="consultation?.viewConsultation">
+            </div>
+          </div>
+        </div>
         <div class="row">
           <div class="col-md-6">
             <label>Tratamiento:</label>
