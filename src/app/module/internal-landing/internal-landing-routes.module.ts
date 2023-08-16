@@ -9,6 +9,10 @@ import { DiseaseComponent } from "./pages/disease/disease.component";
 import { SpecialtyComponent } from "./pages/specialty/specialty.component";
 import { PetTypeComponent } from "./pages/pet-type/pet-type.component";
 import { PetClassComponent } from "./pages/pet-class/pet-class.component";
+import { AppRoleComponent } from "./pages/app-role/app-role.component";
+import { AppPermissionComponent } from "./pages/app-permission/app-permission.component";
+import { RoleAppPermissionComponent } from "./pages/role-app-permission/role-app-permission.component";
+import { UserComponent } from "./pages/user/user.component";
 
 const routes: Routes = [
   {
@@ -23,6 +27,10 @@ const routes: Routes = [
       { path: 'consulta', component: ConsultationComponent },
       { path: 'mascota', component: PetComponent },
       { path: 'veterinario', component: VetComponent },
+      { path: 'rolapp', component: AppRoleComponent },
+      { path: 'permisosapp', component: AppPermissionComponent},
+      { path: 'rolpermisoapp', component: RoleAppPermissionComponent},
+      { path: 'usuarios', component: UserComponent},
       {
         path: '**',
         redirectTo: '404',

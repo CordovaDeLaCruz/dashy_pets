@@ -27,6 +27,18 @@ import { AddUpdateViewPetModalComponent } from "./pages/pet/add-update-view-pet-
 import { ActivateDeactivatePetModalComponent } from "./pages/pet/activate-deactivate-pet-modal/activate-deactivate-pet-modal.component";
 import { AddUpdateViewConsultationModalComponent } from "./pages/consultation/add-update-view-consultation-modal/add-update-view-consultation-modal.component";
 import { ActivateDeactivateConsultationModalComponent } from "./pages/consultation/activate-deactivate-consultation-modal/activate-deactivate-consultation-modal.component";
+import { AppRoleComponent } from "./pages/app-role/app-role.component";
+import { AddUpdateViewAppRoleModalComponent } from "./pages/app-role/add-update-view-app-role-modal/add-update-view-app-role-modal.component";
+import { ActivateDeactivateAppRoleModalComponent } from "./pages/app-role/activate-deactivate-app-role-modal/activate-deactivate-app-role-modal.component";
+import { AppPermissionComponent } from "./pages/app-permission/app-permission.component";
+import { AddUpdateViewAppPermissionModalComponent } from "./pages/app-permission/add-update-view-app-permission-modal/add-update-view-app-permission-modal.component";
+import { ActivateDeactivateAppPermissionModalComponent } from "./pages/app-permission/activate-deactivate-app-permission-modal/activate-deactivate-app-permission-modal.component";
+import { RoleAppPermissionComponent } from "./pages/role-app-permission/role-app-permission.component";
+import { AddUpdateViewRoleAppPermissionModalComponent } from "./pages/role-app-permission/add-update-view-app-role-permission-modal/add-update-view-app-role-permission-modal.component";
+import { ActivateDeactivateRoleAppPermissionModalComponent } from "./pages/role-app-permission/activate-deactivate-app-role-permission-modal/activate-deactivate-app-role-permission-modal.component";
+import { UserComponent } from "./pages/user/user.component";
+import { AddUpdateViewUserModalComponent } from "./pages/user/add-update-view-user-modal/add-update-view-user-modal.component";
+import { ActivateDeactivateUserModalComponent } from "./pages/user/activate-deactivate-user-modal/activate-deactivate-user-modal.component";
 
 @NgModule({
   declarations:
@@ -54,7 +66,19 @@ import { ActivateDeactivateConsultationModalComponent } from "./pages/consultati
       ActivateDeactivatePetModalComponent,
       ConsultationComponent,
       AddUpdateViewConsultationModalComponent,
-      ActivateDeactivateConsultationModalComponent
+      ActivateDeactivateConsultationModalComponent,
+      AppRoleComponent,
+      AddUpdateViewAppRoleModalComponent,
+      ActivateDeactivateAppRoleModalComponent,
+      AppPermissionComponent,
+      AddUpdateViewAppPermissionModalComponent,
+      ActivateDeactivateAppPermissionModalComponent,
+      RoleAppPermissionComponent,
+      AddUpdateViewRoleAppPermissionModalComponent,
+      ActivateDeactivateRoleAppPermissionModalComponent,
+      UserComponent,
+      AddUpdateViewUserModalComponent,
+      ActivateDeactivateUserModalComponent
     ],
   imports:
     [InternalLandingRoutingModule,

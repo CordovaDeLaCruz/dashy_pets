@@ -1,36 +1,36 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable } from 'rxjs';
-import { CreateUserModelRequest, UserModel, UserModelResponse } from 'src/app/module/models/user/user-models';
+import { CreateRoleAppPermissionModelRequest, RoleAppPermissionModel, RoleAppPermissionModelResponse } from 'src/app/module/models/role-app-permission/role-app-permission-models';
 import { BaseService } from 'src/app/module/services/base.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService extends BaseService {
+export class RoleAppPermissionService extends BaseService {
 
-  private getApiUrl = "/usuario/listarUsuario"
-  private postApiUrl = "/consulta/registrarConsulta"
-  private patchApiUrl = "/consulta/actualizarConsulta"
+  private getApiUrl = "/rolPermisoApp/listarRolPermisoApp"
+  private postApiUrl = "/rolPermisoApp/registrarRolPermisoApp"
+  private patchApiUrl = "/rolPermisoApp/actualizarRolPermisoApp"
 
 
   constructor(private _httpClient: HttpClient) {
     super();
   }
 
-  getListUser(): Observable<UserModel[]> {
+  getListRoleAppPermission(): Observable<RoleAppPermissionModel[]> {
     const url = this.getUrlBase() + this.getApiUrl;
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
 
-    return this._httpClient.get<UserModel[]>(url, { headers }).pipe(
+    return this._httpClient.get<RoleAppPermissionModel[]>(url, { headers }).pipe(
       catchError(this.handleError)
     );
   }
 
-  postUser(vet: CreateUserModelRequest) : Observable<UserModelResponse> {
+  postRoleAppPermission(disease: CreateRoleAppPermissionModelRequest) : Observable<RoleAppPermissionModelResponse> {
     const url = this.getUrlBase() + this.postApiUrl;
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
@@ -38,12 +38,12 @@ export class UserService extends BaseService {
       'Authorization': `Bearer ${token}`
     });
 
-    return this._httpClient.post<UserModelResponse>(url, vet, { headers }).pipe(
+    return this._httpClient.post<RoleAppPermissionModelResponse>(url, disease, { headers }).pipe(
       catchError(this.handleError)
     );
   }
 
-  patchUser(vet: UserModel) {
+  patchRoleAppPermission(disease: RoleAppPermissionModel) {
     const url = this.getUrlBase() + this.patchApiUrl;
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
@@ -51,11 +51,9 @@ export class UserService extends BaseService {
       'Authorization': `Bearer ${token}`
     });
 
-    return this._httpClient.patch<UserModelResponse>(url, vet, { headers }).pipe(
+    return this._httpClient.patch<RoleAppPermissionModelResponse>(url, disease, { headers }).pipe(
       catchError(this.handleError)
     );
   }
 
 }
-
-

@@ -6,11 +6,11 @@
 <div class="specialty-container">
   <div class="modal-content" style="width: 120%;">
     <div class="modal-header">
-      <div *ngIf="disease?.deactivateDisease">
-        <h4>Activar enfermedad</h4>
+      <div *ngIf="roleAppPermission?.deactivateRoleAppPermission">
+        <h4>Activar rol y permiso</h4>
       </div>
-      <div *ngIf="disease?.activateDisease">
-        <h4>Inactivar enfermedad</h4>
+      <div *ngIf="roleAppPermission?.activateRoleAppPermission">
+        <h4>Inactivar rol y permiso</h4>
       </div>
       <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
     </div>
@@ -19,17 +19,17 @@
         <div class="row">
           <div class="row">
             <div class="col-md-12">
-              <div *ngIf="disease?.deactivateDisease">
-                <p>¿Desea activar la enfermedad?</p>
+              <div *ngIf="roleAppPermission?.deactivateRoleAppPermission">
+                <p>¿Desea activar el rol y permiso?</p>
               </div>
-              <div *ngIf="disease?.activateDisease">
-                <p>¿Desea inactivar la enfermedad?</p>
+              <div *ngIf="roleAppPermission?.activateRoleAppPermission">
+                <p>¿Desea inactivar el rol y permiso?</p>
               </div>
             </div>
           </div>
           <div class="modal-footer">
             <div>
-              <button type="button" class="btn button-color" (click)="activateDeactivateDisease()">Aceptar</button>
+              <button type="button" class="btn button-color" (click)="activateDeactivateRoleAppPermission()">Aceptar</button>
             </div>
           </div>
         </div>
