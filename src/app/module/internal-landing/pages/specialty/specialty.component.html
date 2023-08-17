@@ -19,7 +19,7 @@
                   <table class="table table-bordered table-striped custom-table">
                       <thead>
                           <tr>
-                              <th>#</th>
+                              <th>Id Especialidad</th>
                               <th>Especialidad</th>
                               <th>Estado</th>
                               <th>Acciones</th>
@@ -27,7 +27,7 @@
                       </thead>
                       <tbody>
                           <tr *ngFor="let specialty of listSpecialty; let i = index">
-                              <td>{{ i + 1}}</td>
+                              <td>{{specialty.idEspecialidad}}</td>
                               <td>{{specialty.descripcionEspecialidad}}</td>
                               <td>{{specialty.estadoEspecialidad === 'A' ? 'ACTIVO' : (specialty.estadoEspecialidad === 'I' ? 'INACTIVO' : '-')}}</td>
                               <td class="d-flex justify-content-center">

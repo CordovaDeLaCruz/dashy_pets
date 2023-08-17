@@ -26,7 +26,7 @@
                     <table class="table table-bordered table-striped custom-table">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th>Id Consulta</th>
                                 <th>Id. Veterinario</th>
                                 <th>Nomb. Veterinario</th>
                                 <th>Especialidad Vet.</th>
@@ -38,7 +38,7 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let consultation of listConsultation | consultationFilfer:searchTerm; let i = index">
-                                <td>{{ i + 1}}</td>
+                                <td>{{consultation.idConsulta}}</td>
                                 <td>{{consultation.idVeterinario}}</td>
                                 <td>{{consultation.nombreCompletoVeterinario}}</td>
                                 <td>{{consultation.especialidadVeterinario}}</td>

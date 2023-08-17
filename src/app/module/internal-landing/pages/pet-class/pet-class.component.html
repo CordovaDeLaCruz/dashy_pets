@@ -19,7 +19,7 @@
                     <table class="table table-bordered table-striped custom-table">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th>Id Tamaño de perro</th>
                                 <th>Tamaño de perro</th>
                                 <th>Estado</th>
                                 <th>Acciones</th>
@@ -27,7 +27,7 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let petClass of listPetClass; let i = index">
-                                <td>{{ i + 1}}</td>
+                                <td>{{petClass.idClaseMascota}}</td>
                                 <td>{{petClass.descripcionClaseMascota}}</td>
                                 <td>{{petClass.estadoClaseMascota === 'A' ? 'ACTIVO' : (petClass.estadoClaseMascota === 'I' ? 'INACTIVO' : '-')}}</td>
                                 <td class="d-flex justify-content-center">

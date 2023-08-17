@@ -19,7 +19,7 @@
                   <table class="table table-bordered table-striped custom-table">
                       <thead>
                           <tr>
-                              <th>#</th>
+                              <th>Id Mascota</th>
                               <th>Mascota</th>
                               <th>Cliente</th>
                               <th>Raza de perro</th>
@@ -32,7 +32,7 @@
                       </thead>
                       <tbody>
                           <tr *ngFor="let pet of listPet; let i = index">
-                              <td>{{ i + 1}}</td>
+                              <td>{{pet.idMascota}}</td>
                               <td>{{pet.nombreMascota}}</td>
                               <td>{{pet.nombreCliente}}</td>
                               <td>{{pet.descripcionTipoMascota}}</td>

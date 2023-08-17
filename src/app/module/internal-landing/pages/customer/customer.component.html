@@ -19,7 +19,7 @@
                     <table class="table table-bordered table-striped custom-table">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th>Id Cliente</th>
                                 <th>DNI</th>
                                 <th>Nombres y Apellidos</th>
                                 <th>Celular</th>
@@ -30,7 +30,7 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let customer of listCustomer; let i = index">
-                                <td>{{ i + 1}}</td>
+                                <td>{{customer.idCliente}}</td>
                                 <td>{{customer.dni}}</td>
                                 <td>{{customer.nombreCliente}}</td>
                                 <td>{{customer.celular}}</td>

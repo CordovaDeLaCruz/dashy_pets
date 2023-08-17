@@ -19,7 +19,6 @@
                     <table class="table table-bordered table-striped custom-table">
                         <thead>
                             <tr>
-                                <th>#</th>
                                 <th>Usuario</th>
                                 <th>Estado</th>
                                 <th>Acciones</th>
@@ -27,7 +26,6 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let user of listUser; let i = index">
-                                <td>{{ i + 1}}</td>
                                 <td>{{user.usuario}}</td>
                                 <td>{{user.estadoUsuario === 'A' ? 'ACTIVO' : (user.estadoUsuario === 'I' ? 'INACTIVO' : '-')}}</td>
                                 <td class="d-flex justify-content-center">

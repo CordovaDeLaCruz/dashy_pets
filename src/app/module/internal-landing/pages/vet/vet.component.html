@@ -19,7 +19,7 @@
                   <table class="table table-bordered table-striped custom-table">
                       <thead>
                           <tr>
-                              <th>#</th>
+                              <th>Id Veterinario</th>
                               <th>DNI</th>
                               <th>Nombres y Apellidos</th>
                               <th>Especialidad</th>
@@ -31,7 +31,7 @@
                       </thead>
                       <tbody>
                           <tr *ngFor="let vet of listVet; let i = index">
-                              <td>{{ i + 1}}</td>
+                              <td>{{vet.idVeterinario}}</td>
                               <td>{{vet.dni}}</td>
                               <td>{{vet.nombreVeterinario}}</td>
                               <td>{{vet.descripcionEspecialidad}}</td>
