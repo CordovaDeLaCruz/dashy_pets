@@ -39,6 +39,9 @@ import { ActivateDeactivateRoleAppPermissionModalComponent } from "./pages/role-
 import { UserComponent } from "./pages/user/user.component";
 import { AddUpdateViewUserModalComponent } from "./pages/user/add-update-view-user-modal/add-update-view-user-modal.component";
 import { ActivateDeactivateUserModalComponent } from "./pages/user/activate-deactivate-user-modal/activate-deactivate-user-modal.component";
+import { UserRoleAppComponent } from "./pages/user-role-app/user-role-app.component";
+import { ActivateDeactivateUserRoleAppModalComponent } from "./pages/user-role-app/activate-deactivate-user-role-app-modal/activate-deactivate-user-role-app-modal.component";
+import { AddUpdateViewUserRoleAppModalComponent } from "./pages/user-role-app/add-update-view-user-role-app-modal/add-update-view-user-role-app-modal.component";
 
 @NgModule({
   declarations:
@@ -78,7 +81,10 @@ import { ActivateDeactivateUserModalComponent } from "./pages/user/activate-deac
       ActivateDeactivateRoleAppPermissionModalComponent,
       UserComponent,
       AddUpdateViewUserModalComponent,
-      ActivateDeactivateUserModalComponent
+      ActivateDeactivateUserModalComponent,
+      UserRoleAppComponent,
+      AddUpdateViewUserRoleAppModalComponent,
+      ActivateDeactivateUserRoleAppModalComponent
     ],
   imports:
     [InternalLandingRoutingModule,

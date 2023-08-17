@@ -3,11 +3,13 @@ export class UserRoleAppModel {
     idRolApp: number
     descripcionRolApp: string
     estadoUsuarioRolApp: string
-    viewUserRole: boolean
-    editUserRole: boolean
-    addUserRole: boolean
-    activateUserRole: boolean = false
-    deactivateUserRole: boolean = false
+    viewUserRoleApp: boolean
+    editUserRoleApp: boolean
+    addUserRoleApp: boolean
+    activateUserRoleApp: boolean = false
+    deactivateUserRoleApp: boolean = false
+    usuarioUpdate: string
+    idRolAppUpdate: number
 }
 
 export class CreateUserRoleAppModelRequest {
