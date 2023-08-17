@@ -7,13 +7,12 @@ export class UserModel {
   addUser: boolean
   activateUser: boolean = false
   deactivateUser: boolean = false
-  claveSinEncriptar: string
+  usuarioUpdate: string
 }
 
 export class CreateUserModelRequest {
   usuario: string
   clave: string
-  claveSinEncriptar: string
 }
 
 export class UserModelResponse {

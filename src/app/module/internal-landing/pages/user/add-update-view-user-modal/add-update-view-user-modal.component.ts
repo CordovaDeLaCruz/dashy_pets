@@ -27,7 +27,7 @@ export class AddUpdateViewUserModalComponent implements OnInit {
   ngOnInit(): void {
     this.userForm = this._formBuilder.group({
       usuario: ['', Validators.required],
-      claveSinEncriptar: ['', Validators.required],
+      clave: ['', Validators.required],
     });
     if (this.user) {
       this.userForm.patchValue(this.user)
@@ -56,8 +56,8 @@ export class AddUpdateViewUserModalComponent implements OnInit {
     this.loading = true
     if (this.userForm.valid) {
       if (this.user) {
-        this.user.usuario = this.userForm.value.usuario;
-        this.user.claveSinEncriptar = this.userForm.value.claveSinEncriptar;
+        this.user.clave = this.userForm.value.clave;
+        this.user.usuarioUpdate = this.userForm.value.usuario;
         this._userService.patchUser(this.user).subscribe(
           (response) => {
             this.loading = false

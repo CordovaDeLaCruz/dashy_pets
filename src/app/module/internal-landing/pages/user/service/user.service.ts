@@ -10,8 +10,8 @@ import { BaseService } from 'src/app/module/services/base.service';
 export class UserService extends BaseService {
 
   private getApiUrl = "/usuario/listarUsuario"
-  private postApiUrl = "/consulta/registrarConsulta"
-  private patchApiUrl = "/consulta/actualizarConsulta"
+  private postApiUrl = "/usuario/registrarUsuario"
+  private patchApiUrl = "/usuario/actualizarUsuario"
 
 
   constructor(private _httpClient: HttpClient) {
