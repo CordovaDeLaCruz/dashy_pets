@@ -20,6 +20,7 @@ export class ConsultationComponent implements OnInit {
   editConsultation = false
   modalRef: MdbModalRef<AddUpdateViewConsultationModalComponent>;
   activateDeactivateModalRef: MdbModalRef<ActivateDeactivateConsultationModalComponent>;
+  searchTerm: string = '';
 
   constructor(private _modalService: MdbModalService, private _vetService: ConsultationService, private _toastr: ToastrService) {
 
@@ -80,6 +81,10 @@ export class ConsultationComponent implements OnInit {
 
     this.activateDeactivateModalRef.onClose.subscribe(() => {
     });
+  }
+
+  onSearchChange(event: any): void {
+    this.searchTerm = event.target.value;
   }
 
 }

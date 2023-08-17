@@ -42,6 +42,7 @@ import { ActivateDeactivateUserModalComponent } from "./pages/user/activate-deac
 import { UserRoleAppComponent } from "./pages/user-role-app/user-role-app.component";
 import { ActivateDeactivateUserRoleAppModalComponent } from "./pages/user-role-app/activate-deactivate-user-role-app-modal/activate-deactivate-user-role-app-modal.component";
 import { AddUpdateViewUserRoleAppModalComponent } from "./pages/user-role-app/add-update-view-user-role-app-modal/add-update-view-user-role-app-modal.component";
+import { ConsultationFilferPipe } from "./pages/consultation/pipe/consultation-filfer.pipe";
 
 @NgModule({
   declarations:
@@ -84,7 +85,8 @@ import { AddUpdateViewUserRoleAppModalComponent } from "./pages/user-role-app/ad
       ActivateDeactivateUserModalComponent,
       UserRoleAppComponent,
       AddUpdateViewUserRoleAppModalComponent,
-      ActivateDeactivateUserRoleAppModalComponent
+      ActivateDeactivateUserRoleAppModalComponent,
+      ConsultationFilferPipe
     ],
   imports:
     [InternalLandingRoutingModule,
