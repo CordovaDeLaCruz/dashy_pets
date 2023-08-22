@@ -41,7 +41,9 @@ export class LoginComponent {
           const token = response.token;
           const message = response.message
           const fullName = response.nombreUsuario
-          if(fullName) localStorage.setItem('fullName', fullName);
+          const role = response.rolApp
+          if (fullName) localStorage.setItem('fullName', fullName);
+          if (role) localStorage.setItem('role', role);
           if (token) {
             localStorage.setItem('token', token);
             this._sidebarService.getMunuOptions().subscribe(

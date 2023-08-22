@@ -43,6 +43,9 @@ import { UserRoleAppComponent } from "./pages/user-role-app/user-role-app.compon
 import { ActivateDeactivateUserRoleAppModalComponent } from "./pages/user-role-app/activate-deactivate-user-role-app-modal/activate-deactivate-user-role-app-modal.component";
 import { AddUpdateViewUserRoleAppModalComponent } from "./pages/user-role-app/add-update-view-user-role-app-modal/add-update-view-user-role-app-modal.component";
 import { ConsultationFilferPipe } from "./pages/consultation/pipe/consultation-filfer.pipe";
+import { SymptomComponent } from "./pages/symptom/symptom.component";
+import { AddUpdateViewSymptomModalComponent } from "./pages/symptom/add-update-view-symptom-modal/add-update-view-symptom-modal.component";
+import { ActivateDeactivateSymptomModalComponent } from "./pages/symptom/activate-deactivate-symptom-modal/activate-deactivate-symptom-modal.component";
 
 @NgModule({
   declarations:
@@ -86,7 +89,10 @@ import { ConsultationFilferPipe } from "./pages/consultation/pipe/consultation-f
       UserRoleAppComponent,
       AddUpdateViewUserRoleAppModalComponent,
       ActivateDeactivateUserRoleAppModalComponent,
-      ConsultationFilferPipe
+      ConsultationFilferPipe,
+      SymptomComponent,
+      AddUpdateViewSymptomModalComponent,
+      ActivateDeactivateSymptomModalComponent
     ],
   imports:
     [InternalLandingRoutingModule,

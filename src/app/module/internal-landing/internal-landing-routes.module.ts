@@ -14,6 +14,7 @@ import { AppPermissionComponent } from "./pages/app-permission/app-permission.co
 import { RoleAppPermissionComponent } from "./pages/role-app-permission/role-app-permission.component";
 import { UserComponent } from "./pages/user/user.component";
 import { UserRoleAppComponent } from "./pages/user-role-app/user-role-app.component";
+import { SymptomComponent } from "./pages/symptom/symptom.component";
 
 const routes: Routes = [
   {
@@ -33,6 +34,7 @@ const routes: Routes = [
       { path: 'rolpermisoapp', component: RoleAppPermissionComponent},
       { path: 'usuarios', component: UserComponent},
       { path: 'usuariorolapp', component: UserRoleAppComponent},
+      { path: 'sintoma', component: SymptomComponent},
       {
         path: '**',
         redirectTo: '404',
