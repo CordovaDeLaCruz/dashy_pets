@@ -18,6 +18,7 @@ export class CustomerModel {
   editCustomer: boolean
   activateCustomer: boolean = false
   deactivateCustomer: boolean = false
+  usuario: string
 }
 
 export class CreateCustomerModelRequest {

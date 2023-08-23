@@ -5,6 +5,7 @@ import { ConsultationModel } from 'src/app/module/models/consultation/consultati
 import { ActivateDeactivateConsultationModalComponent } from './activate-deactivate-consultation-modal/activate-deactivate-consultation-modal.component';
 import { AddUpdateViewConsultationModalComponent } from './add-update-view-consultation-modal/add-update-view-consultation-modal.component';
 import { ConsultationService } from './service/consultation.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-consultation',
@@ -21,6 +22,8 @@ export class ConsultationComponent implements OnInit {
   modalRef: MdbModalRef<AddUpdateViewConsultationModalComponent>;
   activateDeactivateModalRef: MdbModalRef<ActivateDeactivateConsultationModalComponent>;
   searchTerm: string = '';
+  startDate: string | null = null;
+  endDate: string | null = null;
 
   constructor(private _modalService: MdbModalService, private _vetService: ConsultationService, private _toastr: ToastrService) {
 
@@ -30,8 +33,10 @@ export class ConsultationComponent implements OnInit {
   }
 
   getListConsultation() {
+    this.startDate = null,
+    this.endDate = null
     this.loading = true
-    this._vetService.getListConsultation().subscribe(
+    this._vetService.getListConsultation(this.startDate, this.endDate).subscribe(
       (response) => {
         this.listConsultation = response;
         this.loading = false
@@ -62,14 +67,14 @@ export class ConsultationComponent implements OnInit {
 
   }
 
-  activateDeactivateModal(consultation: ConsultationModel){
+  activateDeactivateModal(consultation: ConsultationModel) {
 
     this.selectConsultation = consultation
-    if(this.selectConsultation.estadoConsulta === "A") {
+    if (this.selectConsultation.estadoConsulta === "A") {
       this.selectConsultation.activateConsultation = true
       this.selectConsultation.deactivateConsultation = false
     }
-    if(this.selectConsultation.estadoConsulta === "I") {
+    if (this.selectConsultation.estadoConsulta === "I") {
       this.selectConsultation.deactivateConsultation = true
       this.selectConsultation.activateConsultation = false
     }
@@ -85,6 +90,28 @@ export class ConsultationComponent implements OnInit {
 
   onSearchChange(event: any): void {
     this.searchTerm = event.target.value;
+  }
+
+  onStartDateChange(event: any): void {
+    this.startDate = event.target.value;
+  }
+
+  onEndDateChange(event: any): void {
+    this.endDate = event.target.value;
+  }
+
+  search() {
+    this.loading = true
+    this._vetService.getListConsultation(this.startDate, this.endDate).subscribe(
+      (response) => {
+        this.listConsultation = response;
+        this.loading = false
+      },
+      (error) => {
+        this.loading = false
+        this._toastr.error(error.error.error, "Lista de consultas")
+      }
+    );
   }
 
 }

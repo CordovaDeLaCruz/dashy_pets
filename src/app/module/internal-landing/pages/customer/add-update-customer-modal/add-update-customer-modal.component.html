@@ -62,9 +62,16 @@
         </div>
         <br>
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-6">
             <label>Dirección:</label>
             <input type="text" class="form-control" placeholder="Dirección" formControlName="direccion" [readonly]="customer?.viewCustomer">
+          </div>
+          <div class="col-md-6">
+            <label>Usuario:</label>
+            <select *ngIf="!customer?.viewCustomer" class="form-control custom-select" formControlName="usuario">
+              <option *ngFor="let user of listUser" [value]="user.usuario">{{ user.usuario }}</option>
+            </select>
+            <input *ngIf="customer?.viewCustomer" type="text" class="form-control" placeholder="Usuario" value={{customer?.usuario}} [readonly]="customer?.viewCustomer">
           </div>
         </div>
         <div class="modal-footer">

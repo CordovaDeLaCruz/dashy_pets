@@ -4,6 +4,8 @@ import { MdbModalRef } from "mdb-angular-ui-kit/modal";
 import { ToastrService } from "ngx-toastr";
 import { CustomerService } from "../service/customer.service";
 import { CreateCustomerModelRequest, CustomerModel } from "src/app/module/models/customer/customer-models";
+import { UserModel } from "src/app/module/models/user/user-models";
+import { UserService } from "../../user/service/user.service";
 
 @Component({
   selector: 'app-add-update-customer-modal',
@@ -15,12 +17,14 @@ export class AddUpdateCustomerModalComponent implements OnInit {
   @Input() customer: CustomerModel | null;
   customerForm: FormGroup;
   newCustomer: CreateCustomerModelRequest = new CreateCustomerModelRequest();
+  listUser: UserModel[] = []
 
   constructor(
     private _modalRef: MdbModalRef<AddUpdateCustomerModalComponent>,
     private _formBuilder: FormBuilder,
     private _customerService: CustomerService,
-    private _toastr: ToastrService) {
+    private _toastr: ToastrService,
+    private _userService: UserService) {
 
   }
   ngOnInit(): void {
@@ -34,14 +38,41 @@ export class AddUpdateCustomerModalComponent implements OnInit {
       fechaNacimiento: [''],
       correo: ['', Validators.email],
       direccion: [''],
-      sexo: ['M']
+      sexo: ['M'],
+      usuario: [''],
     });
+
+    this.getListUser()
+
     if (this.customer){
       this.customer.fechaNacimiento = this.customer.fechaNacimiento.substring(0, 10);
       if(this.customer.viewCustomer)
         this.customer.sexo = this.customer.sexo === "M" ? "Masculino" : "Femenino";
       this.customerForm.patchValue(this.customer)
     }
+  }
+
+  getListUser() {
+    this.loading = true
+    this._userService.getListUser().subscribe(
+      (response) => {
+        this.listUser = response.filter(elemet => elemet.estadoUsuario === "A")
+        this.listUser = this.listUser.slice().sort((a, b) => a.usuario.localeCompare(b.usuario))
+        if (this.customer)
+          this.customerForm.patchValue({
+            usuario: this.customer.usuario
+          });
+        else
+          this.customerForm.patchValue({
+            usuario: this.listUser[0].usuario
+          });
+        this.loading = false
+      },
+      (error) => {
+        this.loading = false
+        this._toastr.error(error.error.error, "Lista de Usuarios")
+      }
+    );
   }
 
   regiterCustomer() {
