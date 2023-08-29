@@ -62,7 +62,7 @@
                 <td>{{consultation.nombreCompletoVeterinario}}</td>
                 <td>{{consultation.especialidadVeterinario}}</td>
                 <td>{{consultation.nombreCompletoCliente}}</td>
-                <td>{{consultation.fechaConsulta | date:'dd/MM/yyyy'}}</td>
+                <td>{{consultation.fechaConsulta.substring(0, 10) | date: 'dd/MM/YYYY'}}</td>
                 <td>{{consultation.nombreMascota}}</td>
                 <td>{{consultation.estadoConsulta === 'A' ? 'ACTIVO' : (consultation.estadoConsulta === 'I' ? 'INACTIVO'
                   : '-')}}</td>
