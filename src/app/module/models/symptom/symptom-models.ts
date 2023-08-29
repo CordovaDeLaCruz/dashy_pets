@@ -7,6 +7,7 @@ export class SymptomModel {
   addSymptom: boolean
   activateSymptom: boolean = false
   deactivateSymptom: boolean = false
+  tieneSintoma: boolean = false
 }
 
 export class CreateSymptomModelRequest {

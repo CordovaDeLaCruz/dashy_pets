@@ -1,3 +1,5 @@
+import { SymptomModel } from "../symptom/symptom-models"
+
 export class ConsultationModel {
     idConsulta: number
     idVeterinario: number
@@ -21,6 +23,8 @@ export class ConsultationModel {
     idEnfermedad: number
     activateConsultation: boolean = false
     deactivateConsultation: boolean = false
+    sintomasChecklist: SymptomModel[]
+    sintomasConcatenado: string
 }
 
 export class CreateConsultationModelRequest {

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { MdbModalRef } from "mdb-angular-ui-kit/modal";
 import { ToastrService } from "ngx-toastr";
 import { VetService } from "../../vet/service/vet.service";
@@ -10,6 +10,8 @@ import { VetModel } from "src/app/module/models/vet/vet-models";
 import { PetModel } from "src/app/module/models/pet/pet-models";
 import { DiseaseService } from "../../disease/service/disease.service";
 import { DiseaseModel } from "src/app/module/models/disease/disease-models";
+import { SymptomModel } from "src/app/module/models/symptom/symptom-models";
+import { SymptomService } from "../../symptom/service/symptom.service";
 
 @Component({
   selector: 'app-add-update-view-consultation-modal',
@@ -24,6 +26,7 @@ export class AddUpdateViewConsultationModalComponent implements OnInit {
   listVet: VetModel[] = []
   listDisease: DiseaseModel[] = []
   listPet: PetModel[] = []
+  listSymptom: SymptomModel[] = []
 
   constructor(
     private _modalRef: MdbModalRef<AddUpdateViewConsultationModalComponent>,
@@ -32,7 +35,8 @@ export class AddUpdateViewConsultationModalComponent implements OnInit {
     private _toastr: ToastrService,
     private _vetService: VetService,
     private _petService: PetService,
-    private _diseaseService: DiseaseService) {
+    private _diseaseService: DiseaseService,
+    private _symptomService: SymptomService) {
 
   }
   ngOnInit(): void {
@@ -44,16 +48,19 @@ export class AddUpdateViewConsultationModalComponent implements OnInit {
       fechaProximaConsulta: [''],
       diagnostico: [''],
       tratamiento: [''],
-      observaciones: ['']
+      observaciones: [''],
+      sintomasChecklist: new FormArray([]),
     });
 
     this.getListVet()
     this.getListDisease()
     this.getListPet()
+    this.getListSymptom()
 
     if (this.consultation) {
       this.consultation.fechaConsulta = this.consultation.fechaConsulta.substring(0, 10);
-      this.consultation.fechaProximaConsulta = this.consultation.fechaProximaConsulta.substring(0, 10);
+      if(this.consultation.fechaProximaConsulta != null)
+        this.consultation.fechaProximaConsulta = this.consultation.fechaProximaConsulta.substring(0, 10);
       this.consultationForm.patchValue(this.consultation)
     }
   }
@@ -63,8 +70,8 @@ export class AddUpdateViewConsultationModalComponent implements OnInit {
     this._vetService.getListVet().subscribe(
       (response) => {
         this.listVet = response.filter(elemet => elemet.estadoVeterinario === "A")
-        this.listVet = this.listVet.slice().sort((a, b) => a.apellidoPaterno.localeCompare(b.apellidoPaterno))
-        if(this.consultation)
+        this.listVet = this.listVet.slice().sort((a, b) => a.nombreVeterinario.localeCompare(b.nombreVeterinario))
+        if (this.consultation)
           this.consultationForm.patchValue({
             idVeterinario: this.consultation.idVeterinario
           });
@@ -87,7 +94,7 @@ export class AddUpdateViewConsultationModalComponent implements OnInit {
       (response) => {
         this.listDisease = response.filter(elemet => elemet.estadoEnfermedad === "A")
         this.listDisease = this.listDisease.slice().sort((a, b) => a.descripcionEnfermedad.localeCompare(b.descripcionEnfermedad))
-        if(this.consultation)
+        if (this.consultation)
           this.consultationForm.patchValue({
             idEnfermedad: this.consultation.idEnfermedad
           });
@@ -110,7 +117,7 @@ export class AddUpdateViewConsultationModalComponent implements OnInit {
       (response) => {
         this.listPet = response.filter(elemet => elemet.estadoMascota === "A")
         this.listPet = this.listPet.slice().sort((a, b) => a.nombreMascota.localeCompare(b.nombreMascota))
-        if(this.consultation)
+        if (this.consultation)
           this.consultationForm.patchValue({
             idMascota: this.consultation.idMascota
           });
@@ -127,9 +134,49 @@ export class AddUpdateViewConsultationModalComponent implements OnInit {
     );
   }
 
+  getListSymptom() {
+    this.loading = true
+    this._symptomService.getListSymptom().subscribe(
+      (response) => {
+        this.listSymptom = response.filter(elemet => elemet.estadoSintoma === "A")
+        this.listSymptom = this.listSymptom.slice().sort((a, b) => a.descripcionSintoma.localeCompare(b.descripcionSintoma))
+        if (this.consultation) {
+          this.listSymptom = this.consultation.sintomasChecklist
+        }
+        else {
+          this.listSymptom = this.listSymptom
+        }
+        this.loading = false
+      },
+      (error) => {
+        this.loading = false
+        this._toastr.error(error.error.error, "Lista de síntomas")
+      }
+    );
+  }
+
+  onCheckboxChange(item: SymptomModel): void {
+    item.tieneSintoma = !item.tieneSintoma;
+  }
+
+  getSelectedItems(): SymptomModel[] {
+    return this.listSymptom.filter(item => item.tieneSintoma);
+  }
+
   regiterConsultation() {
     this.loading = true
+    const sintomasChecklist = this.consultationForm.get('sintomasChecklist') as FormArray;
+    while (sintomasChecklist.length !== 0) {
+      sintomasChecklist.removeAt(0);
+    }
+    this.getSelectedItems().forEach((sintoma) => {
+      sintomasChecklist.push(this._formBuilder.group(sintoma))
+    })
+    this.consultationForm.updateValueAndValidity();
+    
     if (this.consultationForm.valid) {
+      if(this.consultationForm.value.fechaProximaConsulta == '')
+      delete this.consultationForm.value.fechaProximaConsulta
       this._consultationService.postConsultation(this.consultationForm.value).subscribe(
         (response) => {
           this.loading = false
@@ -157,6 +204,7 @@ export class AddUpdateViewConsultationModalComponent implements OnInit {
         this.consultation.tratamiento = this.consultationForm.value.tratamiento
         this.consultation.observaciones = this.consultationForm.value.observaciones
         this.consultation.diagnostico = this.consultationForm.value.diagnostico
+        this.consultation.sintomasChecklist = this.getSelectedItems()
         this._consultationService.patchConsultation(this.consultation).subscribe(
           (response) => {
             this.loading = false
