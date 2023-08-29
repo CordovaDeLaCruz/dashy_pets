@@ -204,7 +204,9 @@ export class AddUpdateViewConsultationModalComponent implements OnInit {
         this.consultation.tratamiento = this.consultationForm.value.tratamiento
         this.consultation.observaciones = this.consultationForm.value.observaciones
         this.consultation.diagnostico = this.consultationForm.value.diagnostico
-        this.consultation.sintomasChecklist = this.getSelectedItems()
+        const updateListSymptom = this.listSymptom.filter(elemet => elemet.tieneSintoma === true)
+        this.consultation.sintomasChecklist = updateListSymptom
+        
         this._consultationService.patchConsultation(this.consultation).subscribe(
           (response) => {
             this.loading = false
