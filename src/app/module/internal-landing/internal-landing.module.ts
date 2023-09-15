@@ -46,11 +46,11 @@ import { ConsultationFilferPipe } from "./pages/consultation/pipe/consultation-f
 import { SymptomComponent } from "./pages/symptom/symptom.component";
 import { AddUpdateViewSymptomModalComponent } from "./pages/symptom/add-update-view-symptom-modal/add-update-view-symptom-modal.component";
 import { ActivateDeactivateSymptomModalComponent } from "./pages/symptom/activate-deactivate-symptom-modal/activate-deactivate-symptom-modal.component";
+import { SuccessModalComponent } from "./pages/consultation/success-modal/success-modal.component";
 
 @NgModule({
   declarations:
     [CustomerComponent,
-      ConsultationComponent,
       AddUpdateCustomerModalComponent,
       ActivateDeactivateCustomerModalComponent,
       DiseaseComponent,
@@ -74,6 +74,7 @@ import { ActivateDeactivateSymptomModalComponent } from "./pages/symptom/activat
       ConsultationComponent,
       AddUpdateViewConsultationModalComponent,
       ActivateDeactivateConsultationModalComponent,
+      SuccessModalComponent,
       AppRoleComponent,
       AddUpdateViewAppRoleModalComponent,
       ActivateDeactivateAppRoleModalComponent,

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
-import { MdbModalRef } from "mdb-angular-ui-kit/modal";
+import { MdbModalRef, MdbModalService } from "mdb-angular-ui-kit/modal";
 import { ToastrService } from "ngx-toastr";
 import { VetService } from "../../vet/service/vet.service";
 import { CreateConsultationModelRequest, ConsultationModel } from "src/app/module/models/consultation/consultation-models";
@@ -12,6 +12,7 @@ import { DiseaseService } from "../../disease/service/disease.service";
 import { DiseaseModel } from "src/app/module/models/disease/disease-models";
 import { SymptomModel } from "src/app/module/models/symptom/symptom-models";
 import { SymptomService } from "../../symptom/service/symptom.service";
+import { SuccessModalComponent } from "../success-modal/success-modal.component";
 
 @Component({
   selector: 'app-add-update-view-consultation-modal',
@@ -27,6 +28,7 @@ export class AddUpdateViewConsultationModalComponent implements OnInit {
   listDisease: DiseaseModel[] = []
   listPet: PetModel[] = []
   listSymptom: SymptomModel[] = []
+  modalSuccess: MdbModalRef<SuccessModalComponent>
 
   constructor(
     private _modalRef: MdbModalRef<AddUpdateViewConsultationModalComponent>,
@@ -36,7 +38,8 @@ export class AddUpdateViewConsultationModalComponent implements OnInit {
     private _vetService: VetService,
     private _petService: PetService,
     private _diseaseService: DiseaseService,
-    private _symptomService: SymptomService) {
+    private _symptomService: SymptomService,
+    private _modalService: MdbModalService) {
 
   }
   ngOnInit(): void {
@@ -173,14 +176,19 @@ export class AddUpdateViewConsultationModalComponent implements OnInit {
       sintomasChecklist.push(this._formBuilder.group(sintoma))
     })
     this.consultationForm.updateValueAndValidity();
-    
+
     if (this.consultationForm.valid) {
       if(this.consultationForm.value.fechaProximaConsulta == '')
       delete this.consultationForm.value.fechaProximaConsulta
       this._consultationService.postConsultation(this.consultationForm.value).subscribe(
         (response) => {
           this.loading = false
-          this._toastr.success(response.message, "Registrar Consulta")
+          //this._toastr.success(response.message, "Registrar Consulta")
+          const prediction = {
+            message: response.message,
+            pet: "pet"
+          };
+          this.successModal(prediction)
           this._modalRef.close();
         },
         (error) => {
@@ -206,11 +214,16 @@ export class AddUpdateViewConsultationModalComponent implements OnInit {
         this.consultation.diagnostico = this.consultationForm.value.diagnostico
         const updateListSymptom = this.listSymptom.filter(elemet => elemet.tieneSintoma === true)
         this.consultation.sintomasChecklist = updateListSymptom
-        
+
         this._consultationService.patchConsultation(this.consultation).subscribe(
           (response) => {
             this.loading = false
-            this._toastr.success(response.message, "Actualizar Consulta")
+            //this._toastr.success(response.message, "Actualizar Consulta")
+            const prediction = {
+              message: response.message,
+              pet: "pet"
+            };
+            this.successModal(prediction)
             this._modalRef.close();
           },
           (error) => {
@@ -225,5 +238,15 @@ export class AddUpdateViewConsultationModalComponent implements OnInit {
 
   closeModal() {
     this._modalRef.close();
+  }
+
+  successModal(prediction: any) {
+    this.modalSuccess = this._modalService.open(SuccessModalComponent, {
+      ignoreBackdropClick: true
+    });
+    this.modalSuccess.component.prediction = prediction
+
+    this.modalSuccess.onClose.subscribe(() => {
+    });
   }
 }
