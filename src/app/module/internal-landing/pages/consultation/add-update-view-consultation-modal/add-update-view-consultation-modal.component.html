@@ -46,8 +46,8 @@
             <input type="date" class="form-control" formControlName="fechaProximaConsulta" [readonly]="consultation?.viewConsultation">
           </div>
           <div class="col-md-4">
-            <label>Diagnostico:</label>
-            <input type="text" class="form-control" placeholder="Diagnostico" formControlName="diagnostico" [readonly]="consultation?.viewConsultation">
+            <label>Edad en meses:</label>
+            <input type="number" class="form-control" placeholder="Edad en meses" formControlName="edadMeses" [readonly]="consultation?.viewConsultation">
           </div>
         </div>
         <br>
@@ -80,7 +80,15 @@
             <label>Tratamiento:</label>
             <input type="text" class="form-control" placeholder="Tratamiento" formControlName="tratamiento" [readonly]="consultation?.viewConsultation">
           </div>
+
           <div class="col-md-6">
+            <label>Diagnostico:</label>
+            <input type="text" class="form-control" placeholder="Diagnostico" formControlName="diagnostico" [readonly]="consultation?.viewConsultation">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-12">
             <label>Observaciones:</label>
             <input type="text" class="form-control" placeholder="Observaciones" formControlName="observaciones" [readonly]="consultation?.viewConsultation">
           </div>

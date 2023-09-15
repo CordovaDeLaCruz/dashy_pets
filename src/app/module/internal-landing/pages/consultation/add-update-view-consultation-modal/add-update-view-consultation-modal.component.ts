@@ -49,6 +49,7 @@ export class AddUpdateViewConsultationModalComponent implements OnInit {
       idEnfermedad: ['', Validators.required],
       fechaConsulta: ['', Validators.required],
       fechaProximaConsulta: [''],
+      edadMeses: ['', Validators.required],
       diagnostico: [''],
       tratamiento: [''],
       observaciones: [''],
@@ -183,10 +184,9 @@ export class AddUpdateViewConsultationModalComponent implements OnInit {
       this._consultationService.postConsultation(this.consultationForm.value).subscribe(
         (response) => {
           this.loading = false
-          //this._toastr.success(response.message, "Registrar Consulta")
+          this._toastr.success(response.message, "Registrar Consulta")
           const prediction = {
-            message: response.message,
-            pet: "pet"
+            message: response.prediction.mensaje,
           };
           this.successModal(prediction)
           this._modalRef.close();
@@ -212,16 +212,16 @@ export class AddUpdateViewConsultationModalComponent implements OnInit {
         this.consultation.tratamiento = this.consultationForm.value.tratamiento
         this.consultation.observaciones = this.consultationForm.value.observaciones
         this.consultation.diagnostico = this.consultationForm.value.diagnostico
+        this.consultation.edadMeses = this.consultationForm.value.edadMeses
         const updateListSymptom = this.listSymptom.filter(elemet => elemet.tieneSintoma === true)
         this.consultation.sintomasChecklist = updateListSymptom
 
         this._consultationService.patchConsultation(this.consultation).subscribe(
           (response) => {
             this.loading = false
-            //this._toastr.success(response.message, "Actualizar Consulta")
+            this._toastr.success(response.message, "Actualizar Consulta")
             const prediction = {
-              message: response.message,
-              pet: "pet"
+              message: response.prediction.mensaje,
             };
             this.successModal(prediction)
             this._modalRef.close();

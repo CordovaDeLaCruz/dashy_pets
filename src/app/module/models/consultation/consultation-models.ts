@@ -13,6 +13,7 @@ export class ConsultationModel {
     fechaConsulta: string
     fechaProximaConsulta: string
     diagnostico: string
+    edadMeses: number
     tratamiento: string
     observaciones: string
     estadoConsulta: string
@@ -40,4 +41,5 @@ export class CreateConsultationModelRequest {
 
 export class ConsultationModelResponse {
     message: string
+    prediction: any
 }
