@@ -68,8 +68,7 @@ export class PredictionComponent implements OnInit {
       this._predictionService.postPrediction(this.predicionForm.value).subscribe(
         (response) => {
           this.loading = false
-          this._toastr.success(response.mensaje, "Predicción")
-          this.successModal(response.mensaje)
+          this.successModal(response)
         },
         (error) => {
           this.loading = false;
@@ -80,6 +79,7 @@ export class PredictionComponent implements OnInit {
   }
 
   successModal(prediction: any) {
+    console.log(prediction);
     this.modalSuccess = this._modalService.open(SuccessModalComponent, {
       ignoreBackdropClick: true
     });

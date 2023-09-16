@@ -70,7 +70,6 @@ export class AddUpdateViewConsultationModalComponent implements OnInit {
   }
 
   getListVet() {
-    this.loading = true
     this._vetService.getListVet().subscribe(
       (response) => {
         this.listVet = response.filter(elemet => elemet.estadoVeterinario === "A")
@@ -83,17 +82,14 @@ export class AddUpdateViewConsultationModalComponent implements OnInit {
           this.consultationForm.patchValue({
             idVeterinario: this.listVet[0].idVeterinario
           });
-        this.loading = false
       },
       (error) => {
-        this.loading = false
         this._toastr.error(error.error.error, "Lista de Veterinarios")
       }
     );
   }
 
   getListDisease() {
-    this.loading = true
     this._diseaseService.getListDisease().subscribe(
       (response) => {
         this.listDisease = response.filter(elemet => elemet.estadoEnfermedad === "A")
@@ -106,17 +102,14 @@ export class AddUpdateViewConsultationModalComponent implements OnInit {
           this.consultationForm.patchValue({
             idEnfermedad: this.listDisease[0].idEnfermedad
           });
-        this.loading = false
       },
       (error) => {
-        this.loading = false
         this._toastr.error(error.error.error, "Lista de enfermedades")
       }
     );
   }
 
   getListPet() {
-    this.loading = true
     this._petService.getListPet().subscribe(
       (response) => {
         this.listPet = response.filter(elemet => elemet.estadoMascota === "A")
@@ -129,17 +122,14 @@ export class AddUpdateViewConsultationModalComponent implements OnInit {
           this.consultationForm.patchValue({
             idMascota: this.listPet[0].idMascota
           });
-        this.loading = false
       },
       (error) => {
-        this.loading = false
         this._toastr.error(error.error.error, "Lista de mascotas")
       }
     );
   }
 
   getListSymptom() {
-    this.loading = true
     this._symptomService.getListSymptom().subscribe(
       (response) => {
         this.listSymptom = response.filter(elemet => elemet.estadoSintoma === "A")
@@ -150,10 +140,8 @@ export class AddUpdateViewConsultationModalComponent implements OnInit {
         else {
           this.listSymptom = this.listSymptom
         }
-        this.loading = false
       },
       (error) => {
-        this.loading = false
         this._toastr.error(error.error.error, "Lista de síntomas")
       }
     );
