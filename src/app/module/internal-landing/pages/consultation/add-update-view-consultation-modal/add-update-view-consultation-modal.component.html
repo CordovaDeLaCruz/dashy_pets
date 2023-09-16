@@ -52,7 +52,7 @@
           </div>
           <div class="col-md-4">
             <label>Edad en meses:</label>
-            <input type="number" class="form-control" placeholder="Edad en meses" formControlName="edadMeses" [readonly]="consultation?.viewConsultation">
+            <input type="number" class="form-control" placeholder="Edad en meses" min="1" formControlName="edadMeses" [readonly]="consultation?.viewConsultation">
           </div>
         </div>
         <br>
