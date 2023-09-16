@@ -10,6 +10,7 @@ import { BaseService } from 'src/app/module/services/base.service';
 export class PetService extends BaseService {
 
   private getApiUrl = "/mascota/listarMascota"
+  private getApiByClientUrl = "/mascota/listarMascotaCliente"
   private postApiUrl = "/mascota/registrarMascota"
   private patchApiUrl = "/mascota/actualizarMascota"
 
@@ -20,6 +21,18 @@ export class PetService extends BaseService {
 
   getListPet(): Observable<PetModel[]> {
     const url = this.getUrlBase() + this.getApiUrl;
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+
+    return this._httpClient.get<PetModel[]>(url, { headers }).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  getListPetByClient(): Observable<PetModel[]> {
+    const url = this.getUrlBase() + this.getApiByClientUrl;
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`

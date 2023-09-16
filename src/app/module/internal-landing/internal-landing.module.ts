@@ -47,6 +47,7 @@ import { SymptomComponent } from "./pages/symptom/symptom.component";
 import { AddUpdateViewSymptomModalComponent } from "./pages/symptom/add-update-view-symptom-modal/add-update-view-symptom-modal.component";
 import { ActivateDeactivateSymptomModalComponent } from "./pages/symptom/activate-deactivate-symptom-modal/activate-deactivate-symptom-modal.component";
 import { SuccessModalComponent } from "./pages/consultation/success-modal/success-modal.component";
+import { PredictionComponent } from "./pages/prediction/prediction.component";
 
 @NgModule({
   declarations:
@@ -93,7 +94,8 @@ import { SuccessModalComponent } from "./pages/consultation/success-modal/succes
       ConsultationFilferPipe,
       SymptomComponent,
       AddUpdateViewSymptomModalComponent,
-      ActivateDeactivateSymptomModalComponent
+      ActivateDeactivateSymptomModalComponent,
+      PredictionComponent
     ],
   imports:
     [InternalLandingRoutingModule,

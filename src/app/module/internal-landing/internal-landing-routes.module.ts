@@ -15,6 +15,7 @@ import { RoleAppPermissionComponent } from "./pages/role-app-permission/role-app
 import { UserComponent } from "./pages/user/user.component";
 import { UserRoleAppComponent } from "./pages/user-role-app/user-role-app.component";
 import { SymptomComponent } from "./pages/symptom/symptom.component";
+import { PredictionComponent } from "./pages/prediction/prediction.component";
 
 const routes: Routes = [
   {
@@ -35,6 +36,7 @@ const routes: Routes = [
       { path: 'usuarios', component: UserComponent},
       { path: 'usuariorolapp', component: UserRoleAppComponent},
       { path: 'sintoma', component: SymptomComponent},
+      { path: 'predecirparvovirus', component: PredictionComponent},
       {
         path: '**',
         redirectTo: '404',
